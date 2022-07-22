@@ -1,0 +1,47 @@
+CREATE TABLE ers_reimbursement (
+
+	reimb_id serial PRIMARY KEY,
+	reimb_amount int,
+	reimb_submitted timestamp,
+	reimb_resolved timestamp,
+	reim_receipt blob,
+	reimb_author_fk int REFERENCES ers_users (ers_user_id),
+	reimb_resolver_fk int ers_users (ers_user_id),
+	reimb_status_id_fk int REFERENCES ers_reimbursement_status (reimb_status_id),
+	reimb_type_id fk int REFERENCES ers_reimbursement_type (reimb_type_id)
+
+)
+
+CREATE TABLE ers_reimbursement_status (
+
+	reimb_status_id serial PRIMARY KEY,
+	reimb_status TEXT;
+
+)
+
+CREATE TABLE ers_reimbursement_type (
+
+	reimb_type_id serial PRIMARY KEY,
+	reimb_type TEXT;
+
+)
+
+CREATE TABLE ers_user_roles (
+
+	ers_user_role_id serial PRIMARY KEY,
+	user_roles TEXT;
+
+)
+
+CREATE TABLE ers_users (
+
+	ers_user_id serial PRIMARY KEY,
+	ers_username TEXT,
+	ers_password TEXT,
+	user_first_name TEXT,
+	user_last_name TEXT,
+	user_email TEXT,
+	user_role_id_fk int REFERENCES ers_user_roles (ers_user_role_id),
+	UNIQUE(ers_username, user_email);
+
+)

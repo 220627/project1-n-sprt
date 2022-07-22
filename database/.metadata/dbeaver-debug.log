@@ -1,0 +1,269 @@
+2022-07-21 10:23:35.128 - Create display
+> Start Eclipse IDE UI [org.eclipse.ui.ide 3.18.500.v20220215-1304]
+2022-07-21 10:23:35.358 - DBeaver 22.1.0.202206051253 is starting
+2022-07-21 10:23:35.360 - OS: Windows 10 10.0 (amd64)
+2022-07-21 10:23:35.360 - Java version: 11.0.12 by Eclipse Foundation (64bit)
+2022-07-21 10:23:35.361 - Install path: 'C:\Program Files\DBeaver'
+2022-07-21 10:23:35.362 - Instance path: 'file:/C:/Users/thndr/OneDrive/Documents/Code/revature_eclipse/project1-n-sprt/database/'
+2022-07-21 10:23:35.363 - Memory available 64Mb/1024Mb
+> Start DBeaver UI Editors - Base [org.jkiss.dbeaver.ui.editors.base 1.0.83.202206051253]
+2022-07-21 10:23:35.394 - Starting RMI server at 31886
+2022-07-21 10:23:35.542 - Run workbench
+> Start Eclipse e4 Workbench SWT [org.eclipse.e4.ui.workbench.swt 0.16.400.v20220222-1128]
+> Start Eclipse Application Services [org.eclipse.e4.core.services 2.3.100.v20210910-0640]
+> Start Eclipse UI Application Services [org.eclipse.e4.ui.services 1.5.0.v20210115-1333]
+> Start EMF XML/XMI Persistence [org.eclipse.emf.ecore.xmi 2.16.0.v20190528-0725]
+> Start Eclipse CSS SWT Theme Support [org.eclipse.e4.ui.css.swt.theme 0.13.0.v20201026-1147]
+> Start Eclipse e4 Workbench Add-ons [org.eclipse.e4.ui.workbench.addons.swt 1.4.400.v20211102-0453]
+> Start Eclipse e4 Workbench SWT Renderer [org.eclipse.e4.ui.workbench.renderers.swt 0.15.400.v20220308-0630]
+> Start Eclipse Bindings Support [org.eclipse.e4.ui.bindings 0.13.100.v20210722-1426]
+> Start Eclipse Dependency Injection Extensions [org.eclipse.e4.core.di.extensions 0.17.100.v20210910-0640]
+> Start Eclipse CSS SWT Support [org.eclipse.e4.ui.css.swt 0.14.400.v20211026-1534]
+> Start DBeaver UI [org.jkiss.dbeaver.ui 5.1.98.202206051253]
+> Start Java Native Access [com.sun.jna 5.8.0.v20210503-0343]
+2022-07-21 10:23:39.702 - Configure workbench window
+> Start Help System Core [org.eclipse.help 3.9.100.v20210721-0601]
+2022-07-21 10:23:39.969 - Create actions
+2022-07-21 10:23:39.984 - Disable Eclipse action set 'org.eclipse.ui.edit.text.actionSet.annotationNavigation'
+2022-07-21 10:23:39.988 - Disable Eclipse action set 'org.eclipse.ui.WorkingSetActionSet'
+2022-07-21 10:23:39.990 - Disable Eclipse action set 'org.eclipse.ui.actionSet.openFiles'
+2022-07-21 10:23:41.272 - Initialize workbench window
+2022-07-21 10:23:41.286 - Finish initialization
+> Start DBeaver UI Editors - Data [org.jkiss.dbeaver.ui.editors.data 1.0.83.202206051253]
+> Start Equinox Java Authentication and Authorization Service (JAAS) [org.eclipse.equinox.security 1.3.900.v20220108-1321]
+> Start Internet Connection Management UI [org.eclipse.ui.net 1.4.0.v20210426-0838]
+> Start Internet Connection Management [org.eclipse.core.net 1.3.1100.v20210424-0724]
+> Start DBeaver SQL Model [org.jkiss.dbeaver.model.sql 1.0.73.202206051253]
+2022-07-21 10:23:44.109 - Script dialect 'databricks' not found in registry (for data source provider databricks). Use default.
+2022-07-21 10:23:44.167 - Loading user drivers configuration from 'C:\Users\thndr\OneDrive\Documents\Code\revature_eclipse\project1-n-sprt\database\.metadata\.plugins\org.jkiss.dbeaver.core\drivers.xml'
+2022-07-21 10:23:44.188 - Total database drivers: 100 (100)
+> Start DBeaver Sample Database [org.jkiss.dbeaver.ext.sample.database 1.0.120.202206051253]
+> Start DBeaver Tip of the day [org.jkiss.dbeaver.ext.ui.tipoftheday 1.0.89.202206051253]
+> Start Draw2d [org.eclipse.draw2dl 3.12.100.20220506142945]
+> Start GEF3 GEF (MVC) [org.eclipse.gef3 3.12.100.20220506142945]
+> Start DBeaver ERD UI [org.jkiss.dbeaver.erd.ui 3.0.43.202206051253]
+> Start DBeaver ERD Model [org.jkiss.dbeaver.erd.model 1.0.43.202206051253]
+> Start DBeaver UI Editors - SQL [org.jkiss.dbeaver.ui.editors.sql 1.0.83.202206051253]
+> Start Default Text Editor [org.eclipse.ui.editors 3.14.300.v20210913-0815]
+> Start Text Editor Framework [org.eclipse.ui.workbench.texteditor 3.16.400.v20220218-1619]
+2022-07-21 10:24:27.138 - Connect with 'p1' (postgres-jdbc-182211ccf71-4c886ea9bc9b7bf6)
+> Start DBeaver PostgreSQL Support [org.jkiss.dbeaver.ext.postgresql 2.1.156.202206051253]
+> Start DBeaver GIS Support [org.jkiss.dbeaver.data.gis 1.0.107.202206051253]
+2022-07-21 10:24:27.666 - Execution context opened (p1; Main <postgres>; 0)
+2022-07-21 10:24:27.667 - Initiate connection to PostgreSQL database [postgres@localhost] for Main <postgres>
+2022-07-21 10:24:27.812 - Execution context opened (p1; Metadata <postgres>; 1)
+2022-07-21 10:24:27.813 - Initiate connection to PostgreSQL database [postgres@localhost] for Metadata <postgres>
+2022-07-21 10:24:27.958 - Connected (postgres-jdbc-182211ccf71-4c886ea9bc9b7bf6, PostgreSQL JDBC Driver [42.2.25])
+2022-07-21 10:24:37.507 - Execution context opened (p1; Main <ERS>; 2)
+2022-07-21 10:24:37.508 - Initiate connection to PostgreSQL database [ERS@localhost] for Main <ERS>
+2022-07-21 10:24:37.587 - Execution context opened (p1; Metadata <ERS>; 3)
+2022-07-21 10:24:37.587 - Initiate connection to PostgreSQL database [ERS@localhost] for Metadata <ERS>
+> Start Team Support Core [org.eclipse.team.core 3.9.300.v20220204-0611]
+> Start Core Compare Support [org.eclipse.compare.core 3.6.1000.v20201020-1107]
+> Start Console [org.eclipse.ui.console 3.11.100.v20210721-1355]
+> Start Debug Core [org.eclipse.debug.core 3.19.0.v20220125-2302]
+2022-07-21 10:25:08.652 - Execution context opened (p1; SQLEditor <Script.sql>; 4)
+2022-07-21 10:25:08.655 - Initiate connection to PostgreSQL database [ERS@localhost] for SQLEditor <Script.sql>
+2022-07-21 11:38:30.520 - Execution context opened (p1; Main <theater_mgmt_setup>; 5)
+2022-07-21 11:38:30.525 - Initiate connection to PostgreSQL database [theater_mgmt_setup@localhost] for Main <theater_mgmt_setup>
+2022-07-21 11:38:30.740 - Execution context opened (p1; Metadata <theater_mgmt_setup>; 6)
+2022-07-21 11:38:30.741 - Initiate connection to PostgreSQL database [theater_mgmt_setup@localhost] for Metadata <theater_mgmt_setup>
+> Start DBeaver PostgreSQL Support UI [org.jkiss.dbeaver.ext.postgresql.ui 1.0.59.202206051253]
+> Start DBeaver UI Editors - Connections [org.jkiss.dbeaver.ui.editors.connection 1.0.74.202206051253]
+> Start DBeaver Tasks View [org.jkiss.dbeaver.tasks.ui.view 1.0.32.202206051253]
+> Start DBeaver Tasks - General UI [org.jkiss.dbeaver.tasks.ui 1.0.61.202206051253]
+2022-07-21 17:54:01.913 - Can't get column 'arg_defaults': The column name arg_defaults was not found in this ResultSet.
+2022-07-21 17:54:01.914 - Can't get column 'protransform': The column name protransform was not found in this ResultSet.
+2022-07-21 17:54:01.914 - Can't get column 'proisagg': The column name proisagg was not found in this ResultSet.
+2022-07-21 17:54:01.914 - Can't get column 'proiswindow': The column name proiswindow was not found in this ResultSet.
+2022-07-21 17:54:01.915 - Can't get column 'description': The column name description was not found in this ResultSet.
+> Start Compare Support [org.eclipse.compare 3.8.300.v20220121-1000]
+2022-07-21 21:02:23.629 - System suspend detected! Reinitialize all remote connections.
+2022-07-21 21:04:22.606 - System suspend detected! Reinitialize all remote connections.
+2022-07-22 04:08:46.559 - System suspend detected! Reinitialize all remote connections.
+2022-07-22 08:29:19.130 - System suspend detected! Reinitialize all remote connections.
+2022-07-22 13:41:49.043 - SQL Error [42P01]: ERROR: relation "ers_users" does not exist
+
+Error position:
+org.jkiss.dbeaver.model.sql.DBSQLException: SQL Error [42P01]: ERROR: relation "ers_users" does not exist
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:133)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:575)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:484)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:878)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3526)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:118)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:116)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:4868)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "ers_users" does not exist
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2565)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2297)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:322)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:481)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:401)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:322)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:308)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:284)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:279)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:94)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	... 12 more
+2022-07-22 13:42:20.897 - org.jkiss.dbeaver.model.exec.DBCException: SQL Error [55000]: This statement has been closed.
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.getStatementWarnings(JDBCStatementImpl.java:620)
+	at org.jkiss.dbeaver.model.impl.AsyncServerOutputReader.readServerOutput(AsyncServerOutputReader.java:56)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$ServerOutputReader.dumpOutput(SQLEditor.java:4288)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$ServerOutputReader.run(SQLEditor.java:4239)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.postgresql.util.PSQLException: This statement has been closed.
+	at org.postgresql.jdbc.PgStatement.checkClosed(PgStatement.java:727)
+	at org.postgresql.jdbc.PgStatement.getWarnings(PgStatement.java:608)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.getWarnings(JDBCStatementImpl.java:567)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.getStatementWarnings(JDBCStatementImpl.java:597)
+	... 5 more
+2022-07-22 13:42:21.069 - SQL Error [42601]: ERROR: syntax error at or near ";"
+  Position: 89
+
+Error position: line: 49 pos: 88
+org.jkiss.dbeaver.model.sql.DBSQLException: SQL Error [42601]: ERROR: syntax error at or near ";"
+  Position: 89
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:133)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:575)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:484)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:878)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3526)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:118)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:116)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:4868)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near ";"
+  Position: 89
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2565)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2297)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:322)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:481)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:401)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:322)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:308)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:284)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:279)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:94)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	... 12 more
+2022-07-22 13:42:51.279 - SQL Error [42601]: ERROR: syntax error at or near ";"
+  Position: 272
+
+Error position: line: 66 pos: 271
+org.jkiss.dbeaver.model.sql.DBSQLException: SQL Error [42601]: ERROR: syntax error at or near ";"
+  Position: 272
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:133)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:575)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:484)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:878)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3526)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:118)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:116)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:4868)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near ";"
+  Position: 272
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2565)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2297)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:322)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:481)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:401)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:322)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:308)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:284)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:279)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:94)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	... 12 more
+2022-07-22 13:44:17.112 - SQL Error [42601]: ERROR: syntax error at or near ";"
+  Position: 100
+
+Error position: line: 27 pos: 99
+org.jkiss.dbeaver.model.sql.DBSQLException: SQL Error [42601]: ERROR: syntax error at or near ";"
+  Position: 100
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:133)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:575)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:484)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:878)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3526)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:118)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:116)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:4868)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near ";"
+  Position: 100
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2565)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2297)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:322)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:481)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:401)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:322)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:308)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:284)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:279)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:94)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	... 12 more
+2022-07-22 13:44:17.481 - SQL Error [42601]: ERROR: syntax error at or near ";"
+  Position: 100
+
+Error position: line: 27 pos: 99
+org.jkiss.dbeaver.model.sql.DBSQLException: SQL Error [42601]: ERROR: syntax error at or near ";"
+  Position: 100
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:133)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeStatement(SQLQueryJob.java:575)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.lambda$1(SQLQueryJob.java:484)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.executeSingleQuery(SQLQueryJob.java:491)
+	at org.jkiss.dbeaver.ui.editors.sql.execute.SQLQueryJob.extractData(SQLQueryJob.java:878)
+	at org.jkiss.dbeaver.ui.editors.sql.SQLEditor$QueryResultsContainer.readData(SQLEditor.java:3526)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.lambda$0(ResultSetJobDataRead.java:118)
+	at org.jkiss.dbeaver.model.exec.DBExecUtils.tryExecuteRecover(DBExecUtils.java:172)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetJobDataRead.run(ResultSetJobDataRead.java:116)
+	at org.jkiss.dbeaver.ui.controls.resultset.ResultSetViewer$ResultSetDataPumpJob.run(ResultSetViewer.java:4868)
+	at org.jkiss.dbeaver.model.runtime.AbstractJob.run(AbstractJob.java:105)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.postgresql.util.PSQLException: ERROR: syntax error at or near ";"
+  Position: 100
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2565)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2297)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:322)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:481)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:401)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:322)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:308)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:284)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:279)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.execute(JDBCStatementImpl.java:329)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.lambda$0(JDBCStatementImpl.java:131)
+	at org.jkiss.dbeaver.utils.SecurityManagerUtils.wrapDriverActions(SecurityManagerUtils.java:94)
+	at org.jkiss.dbeaver.model.impl.jdbc.exec.JDBCStatementImpl.executeStatement(JDBCStatementImpl.java:131)
+	... 12 more
