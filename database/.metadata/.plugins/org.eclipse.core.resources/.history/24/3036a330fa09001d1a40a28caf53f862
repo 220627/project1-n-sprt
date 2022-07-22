@@ -16,7 +16,7 @@ CREATE TABLE ers_reimbursement (
 
 )
 
-DROP TABLE ers_reimbursement;
+
 
 
 
