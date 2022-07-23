@@ -37,7 +37,7 @@ public class Reimbursement {
 		this.reimbResolver = reimbResolver;
 	}
 
-
+	
 	public Reimbursement(int reimbId, int reimbAmt, Timestamp reimbSubmitted, Timestamp reimbResolved,
 			String reimbReceipt, String reimbType, int reimbAuthorFk, int resolverFk, int reimbStatusIdFk) {
 		super();
@@ -75,15 +75,31 @@ public class Reimbursement {
 	
 
 
-	public Reimbursement(int reimbId, int reimbAmt, Timestamp reimbSubmitted, Timestamp reimbResolved,
+	public Reimbursement(int reimbId, int reimbAmt, Timestamp reimbSubmitted,
 			String reimbReceipt, String reimbType) {
 		super();
 		this.reimbId = reimbId;
 		this.reimbAmt = reimbAmt;
 		this.reimbSubmitted = reimbSubmitted;
-		this.reimbResolved = reimbResolved;
 		this.reimbReceipt = reimbReceipt;
 		this.reimbType = reimbType;
+	}
+	
+	
+
+
+	public Reimbursement(int reimbId, int reimbAmt, Timestamp reimbSubmitted, String reimbType, int reimbAuthorFk,
+			int resolverFk, int reimbStatusIdFk, Status reimbStatus, User reimbAuthor) {
+		super();
+		this.reimbId = reimbId;
+		this.reimbAmt = reimbAmt;
+		this.reimbSubmitted = reimbSubmitted;
+		this.reimbType = reimbType;
+		this.reimbAuthorFk = reimbAuthorFk;
+		this.resolverFk = resolverFk;
+		this.reimbStatusIdFk = reimbStatusIdFk;
+		this.reimbStatus = reimbStatus;
+		this.reimbAuthor = reimbAuthor;
 	}
 
 
