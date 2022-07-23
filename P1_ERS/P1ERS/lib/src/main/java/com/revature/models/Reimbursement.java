@@ -4,126 +4,208 @@ import java.sql.Timestamp;
 
 public class Reimbursement {
 	
-	private int reimb_id;
-	private int reimb_amt;
-	private Timestamp reimb_submitted;
-	private Timestamp reimb_resolved;
-	private String reimb_receipt;
-	private int reimb_author_fk;
-	private int resolver_fk;
-	private int reimb_status_id_fk;
-	private int reimb_type_id_fk;
+	private int reimbId;
+	private int reimbAmt;
+	private Timestamp reimbSubmitted;
+	private Timestamp reimbResolved;
+	private String reimbReceipt;
+	private String reimbType;
+	private int reimbAuthorFk;
+	private int resolverFk;
+	private int reimbStatusIdFk;
+	private Status reimbStatus;
+	private User reimbAuthor;
+	private User reimbResolver;
+	
 	
 	public Reimbursement() {
 		super();
 	}
 
-	public Reimbursement(int reimb_id, int reimb_amt, Timestamp reimb_submitted, Timestamp reimb_resolved,
-			String reimb_receipt, int reimb_author_fk, int resolver_fk, int reimb_status_id_fk, int reimb_type_id_fk) {
+
+	public Reimbursement(int reimbId, int reimbAmt, Timestamp reimbSubmitted, Timestamp reimbResolved,
+			String reimbReceipt, String reimbType, Status reimbStatus, User reimbAuthor, User reimbResolver) {
 		super();
-		this.reimb_id = reimb_id;
-		this.reimb_amt = reimb_amt;
-		this.reimb_submitted = reimb_submitted;
-		this.reimb_resolved = reimb_resolved;
-		this.reimb_receipt = reimb_receipt;
-		this.reimb_author_fk = reimb_author_fk;
-		this.resolver_fk = resolver_fk;
-		this.reimb_status_id_fk = reimb_status_id_fk;
-		this.reimb_type_id_fk = reimb_type_id_fk;
+		this.reimbId = reimbId;
+		this.reimbAmt = reimbAmt;
+		this.reimbSubmitted = reimbSubmitted;
+		this.reimbResolved = reimbResolved;
+		this.reimbReceipt = reimbReceipt;
+		this.reimbType = reimbType;
+		this.reimbStatus = reimbStatus;
+		this.reimbAuthor = reimbAuthor;
+		this.reimbResolver = reimbResolver;
 	}
 
-	public Reimbursement(int reimb_author_fk, int resolver_fk, int reimb_status_id_fk, int reimb_type_id_fk) {
+
+	public Reimbursement(int reimbId, int reimbAmt, Timestamp reimbSubmitted, Timestamp reimbResolved,
+			String reimbReceipt, String reimbType, int reimbAuthorFk, int resolverFk, int reimbStatusIdFk) {
 		super();
-		this.reimb_author_fk = reimb_author_fk;
-		this.resolver_fk = resolver_fk;
-		this.reimb_status_id_fk = reimb_status_id_fk;
-		this.reimb_type_id_fk = reimb_type_id_fk;
+		this.reimbId = reimbId;
+		this.reimbAmt = reimbAmt;
+		this.reimbSubmitted = reimbSubmitted;
+		this.reimbResolved = reimbResolved;
+		this.reimbReceipt = reimbReceipt;
+		this.reimbType = reimbType;
+		this.reimbAuthorFk = reimbAuthorFk;
+		this.resolverFk = resolverFk;
+		this.reimbStatusIdFk = reimbStatusIdFk;
 	}
 
-	public Reimbursement(String reimb_receipt) {
+
+	public Reimbursement(int reimbId, int reimbAmt, Timestamp reimbSubmitted, Timestamp reimbResolved,
+			String reimbReceipt, String reimbType, int reimbAuthorFk, int resolverFk, int reimbStatusIdFk,
+			Status reimbStatus, User reimbAuthor, User reimbResolver) {
 		super();
-		this.reimb_receipt = reimb_receipt;
+		this.reimbId = reimbId;
+		this.reimbAmt = reimbAmt;
+		this.reimbSubmitted = reimbSubmitted;
+		this.reimbResolved = reimbResolved;
+		this.reimbReceipt = reimbReceipt;
+		this.reimbType = reimbType;
+		this.reimbAuthorFk = reimbAuthorFk;
+		this.resolverFk = resolverFk;
+		this.reimbStatusIdFk = reimbStatusIdFk;
+		this.reimbStatus = reimbStatus;
+		this.reimbAuthor = reimbAuthor;
+		this.reimbResolver = reimbResolver;
 	}
 
-	@Override
-	public String toString() {
-		return "Reimbursement [reimb_id=" + reimb_id + ", reimb_amt=" + reimb_amt + ", reimb_submitted="
-				+ reimb_submitted + ", reimb_resolved=" + reimb_resolved + ", reimb_receipt=" + reimb_receipt
-				+ ", reimb_author_fk=" + reimb_author_fk + ", resolver_fk=" + resolver_fk + ", reimb_status_id_fk="
-				+ reimb_status_id_fk + ", reimb_type_id_fk=" + reimb_type_id_fk + "]";
+
+	
+
+
+	public Reimbursement(int reimbId, int reimbAmt, Timestamp reimbSubmitted, Timestamp reimbResolved,
+			String reimbReceipt, String reimbType) {
+		super();
+		this.reimbId = reimbId;
+		this.reimbAmt = reimbAmt;
+		this.reimbSubmitted = reimbSubmitted;
+		this.reimbResolved = reimbResolved;
+		this.reimbReceipt = reimbReceipt;
+		this.reimbType = reimbType;
 	}
 
-	public int getReimb_id() {
-		return reimb_id;
+
+	public int getReimbId() {
+		return reimbId;
 	}
 
-	public void setReimb_id(int reimb_id) {
-		this.reimb_id = reimb_id;
+
+	public void setReimbId(int reimbId) {
+		this.reimbId = reimbId;
 	}
 
-	public int getReimb_amt() {
-		return reimb_amt;
+
+	public int getReimbAmt() {
+		return reimbAmt;
 	}
 
-	public void setReimb_amt(int reimb_amt) {
-		this.reimb_amt = reimb_amt;
+
+	public void setReimbAmt(int reimbAmt) {
+		this.reimbAmt = reimbAmt;
 	}
 
-	public Timestamp getReimb_submitted() {
-		return reimb_submitted;
+
+	public Timestamp getReimbSubmitted() {
+		return reimbSubmitted;
 	}
 
-	public void setReimb_submitted(Timestamp reimb_submitted) {
-		this.reimb_submitted = reimb_submitted;
+
+	public void setReimbSubmitted(Timestamp reimbSubmitted) {
+		this.reimbSubmitted = reimbSubmitted;
 	}
 
-	public Timestamp getReimb_resolved() {
-		return reimb_resolved;
+
+	public Timestamp getReimbResolved() {
+		return reimbResolved;
 	}
 
-	public void setReimb_resolved(Timestamp reimb_resolved) {
-		this.reimb_resolved = reimb_resolved;
+
+	public void setReimbResolved(Timestamp reimbResolved) {
+		this.reimbResolved = reimbResolved;
 	}
 
-	public String getReimb_receipt() {
-		return reimb_receipt;
+
+	public String getReimbReceipt() {
+		return reimbReceipt;
 	}
 
-	public void setReimb_receipt(String reimb_receipt) {
-		this.reimb_receipt = reimb_receipt;
+
+	public void setReimbReceipt(String reimbReceipt) {
+		this.reimbReceipt = reimbReceipt;
 	}
 
-	public int getReimb_author_fk() {
-		return reimb_author_fk;
+
+	public String getReimbType() {
+		return reimbType;
 	}
 
-	public void setReimb_author_fk(int reimb_author_fk) {
-		this.reimb_author_fk = reimb_author_fk;
+
+	public void setReimbType(String reimbType) {
+		this.reimbType = reimbType;
 	}
 
-	public int getResolver_fk() {
-		return resolver_fk;
+
+	public int getReimbAuthorFk() {
+		return reimbAuthorFk;
 	}
 
-	public void setResolver_fk(int resolver_fk) {
-		this.resolver_fk = resolver_fk;
+
+	public void setReimbAuthorFk(int reimbAuthorFk) {
+		this.reimbAuthorFk = reimbAuthorFk;
 	}
 
-	public int getReimb_status_id_fk() {
-		return reimb_status_id_fk;
+
+	public int getResolverFk() {
+		return resolverFk;
 	}
 
-	public void setReimb_status_id_fk(int reimb_status_id_fk) {
-		this.reimb_status_id_fk = reimb_status_id_fk;
+
+	public void setResolverFk(int resolverFk) {
+		this.resolverFk = resolverFk;
 	}
 
-	public int getReimb_type_id_fk() {
-		return reimb_type_id_fk;
+
+	public int getReimbStatusIdFk() {
+		return reimbStatusIdFk;
 	}
 
-	public void setReimb_type_id_fk(int reimb_type_id_fk) {
-		this.reimb_type_id_fk = reimb_type_id_fk;
+
+	public void setReimbStatusIdFk(int reimbStatusIdFk) {
+		this.reimbStatusIdFk = reimbStatusIdFk;
 	}
+
+
+	public Status getReimbStatus() {
+		return reimbStatus;
+	}
+
+
+	public void setReimbStatus(Status reimbStatus) {
+		this.reimbStatus = reimbStatus;
+	}
+
+
+	public User getReimbAuthor() {
+		return reimbAuthor;
+	}
+
+
+	public void setReimbAuthor(User reimbAuthor) {
+		this.reimbAuthor = reimbAuthor;
+	}
+
+
+	public User getReimbResolver() {
+		return reimbResolver;
+	}
+
+
+	public void setReimbResolver(User reimbResolver) {
+		this.reimbResolver = reimbResolver;
+	}
+
 	
 	
 	

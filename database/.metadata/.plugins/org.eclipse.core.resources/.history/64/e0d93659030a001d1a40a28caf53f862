@@ -9,16 +9,15 @@ CREATE TABLE ers_reimbursement (
 	reimb_submitted timestamp,
 	reimb_resolved timestamp,
 	reimb_receipt TEXT,
-	reimb_type int
 	reimb_author_fk int REFERENCES ers_users (ers_user_id),
 	reimb_resolver_fk int REFERENCES ers_users (ers_user_id),
 	reimb_status_id_fk int REFERENCES ers_reimbursement_status (reimb_status_id),
-	reimb_type int
+	reimb_type_id_fk int REFERENCES ers_reimbursement_type (reimb_type_id)
 
 )
 
 
-DROP TABLE ers_reimbursement;
+
 -------------------------------------=============================== REIMB STATUS ===================================------------------------------------------------------------
 
 
