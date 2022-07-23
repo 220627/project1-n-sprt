@@ -36,7 +36,7 @@ public class UserDAO implements UserDAOInterface {
 				
 				return u;
 			} else { 
-				System.out.println("There was a problem creating your user");
+				System.out.println("There was a problem returning your user");
 			}
 			
 			
@@ -49,5 +49,45 @@ public class UserDAO implements UserDAOInterface {
 		
 		return null;
 	}
+
+	@Override
+	public User getUserByUsername(User user, boolean passToggle) {
+
+		try (Connection conn = ConnectionUtil.getConnection()){
+			
+			String sql = "select * from ers_users where username = ?;";
+			
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setString(1, user.getErsUsername());
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs != null) {
+				User u = new User(
+					rs.getInt("ers_user_id"),
+					rs.getString("ers_username"),
+					rs.getString("user_first_name"),
+					rs.getString("user_last_name"),
+					rs.getString("user_email"),
+					rs.getInt("user_role_id_fk")
+					);
+				return u;
+			
+			} else {
+				System.out.println("Couldn't access your user");
+			}
+			
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return null;
+	}
+	
+	
 
 }

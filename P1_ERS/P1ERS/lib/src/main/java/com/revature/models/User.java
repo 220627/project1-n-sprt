@@ -4,7 +4,7 @@ public class User {
 	
 	private int ersUserId;
 	private String ersUsername;
-	private String eraPassword;
+	private String ersPassword;
 	private String userFirstName;
 	private String userLastName;
 	private String userEmail;
@@ -15,17 +15,42 @@ public class User {
 		super();
 	}
 
-	public User(int ersUserId, String ersUsername, String eraPassword, String userFirstName, String userLastName,
+	public User(int ersUserId, String ersUsername, String ersPassword, String userFirstName, String userLastName,
 			String userEmail, int userRoleIdFk) {
 		super();
 		this.ersUserId = ersUserId;
 		this.ersUsername = ersUsername;
-		this.eraPassword = eraPassword;
+		this.ersPassword = ersPassword;
 		this.userFirstName = userFirstName;
 		this.userLastName = userLastName;
 		this.userEmail = userEmail;
 		this.userRoleIdFk = userRoleIdFk;
 	}
+
+	public User(int ersUserId, String ersUsername, String userFirstName, String userLastName, String userEmail,
+			int userRoleIdFk) {
+		super();
+		this.ersUserId = ersUserId;
+		this.ersUsername = ersUsername;
+		this.userFirstName = userFirstName;
+		this.userLastName = userLastName;
+		this.userEmail = userEmail;
+		this.userRoleIdFk = userRoleIdFk;
+	}
+	
+	public User(int ersUserId, String ersUsername, String ersPassword, String userFirstName, String userLastName,
+			String userEmail, int userRoleIdFk, Role userRole) {
+		super();
+		this.ersUserId = ersUserId;
+		this.ersUsername = ersUsername;
+		this.ersPassword = ersPassword;
+		this.userFirstName = userFirstName;
+		this.userLastName = userLastName;
+		this.userEmail = userEmail;
+		this.userRoleIdFk = userRoleIdFk;
+		this.userRole = userRole;
+	}
+
 
 	@Override
 	public String toString() {
@@ -51,11 +76,11 @@ public class User {
 	}
 
 	public String getEraPassword() {
-		return eraPassword;
+		return ersPassword;
 	}
 
 	public void setEraPassword(String eraPassword) {
-		this.eraPassword = eraPassword;
+		this.ersPassword = eraPassword;
 	}
 
 	public String getUserFirstName() {
