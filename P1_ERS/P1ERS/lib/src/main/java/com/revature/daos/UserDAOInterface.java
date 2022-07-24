@@ -4,7 +4,7 @@ import com.revature.models.User;
 
 public interface UserDAOInterface {
 	
-	User getUserByID(User user);
+	User getUserByID(int id);
 	
 	User getUserByUsername(User user, boolean passToggle);
 	

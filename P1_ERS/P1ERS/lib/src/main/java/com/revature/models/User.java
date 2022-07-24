@@ -15,6 +15,20 @@ public class User {
 		super();
 	}
 
+	
+	
+	
+	public User(int ersUserId, String ersUsername, String userFirstName, String userLastName) {
+		super();
+		this.ersUserId = ersUserId;
+		this.ersUsername = ersUsername;
+		this.userFirstName = userFirstName;
+		this.userLastName = userLastName;
+	}
+
+
+
+
 	public User(int ersUserId, String ersUsername, String ersPassword, String userFirstName, String userLastName,
 			String userEmail, int userRoleIdFk) {
 		super();
@@ -50,11 +64,11 @@ public class User {
 		this.userRoleIdFk = userRoleIdFk;
 		this.userRole = userRole;
 	}
-
-
+	
+	
 	@Override
 	public String toString() {
-		return "User [ersUserId=" + ersUserId + ", ersUsername=" + ersUsername + ", eraPassword=" + eraPassword
+		return "User [ersUserId=" + ersUserId + ", ersUsername=" + ersUsername + ", ersPassword=" + ersPassword
 				+ ", userFirstName=" + userFirstName + ", userLastName=" + userLastName + ", userEmail=" + userEmail
 				+ ", userRoleIdFk=" + userRoleIdFk + ", userRole=" + userRole + "]";
 	}

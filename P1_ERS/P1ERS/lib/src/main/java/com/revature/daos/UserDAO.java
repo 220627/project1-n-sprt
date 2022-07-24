@@ -11,7 +11,7 @@ import com.revature.util.ConnectionUtil;
 public class UserDAO implements UserDAOInterface {
 
 	@Override
-	public User getUserByID(User user) {
+	public User getUserByID(int id) {
 
 		try (Connection conn = ConnectionUtil.getConnection()){
 			
@@ -19,7 +19,7 @@ public class UserDAO implements UserDAOInterface {
 			
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
-			ps.setInt(1, user.getErsUserId());
+			ps.setInt(1, id);
 			
 			ResultSet rs = ps.executeQuery();
 			
@@ -88,6 +88,35 @@ public class UserDAO implements UserDAOInterface {
 		return null;
 	}
 	
+	public User getAuthorById(int id) {
+		
+		try(Connection conn = ConnectionUtil.getConnection()) {
+			
+			String sql = "select * from user where user_id = ?;";
+			
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, id);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			if (rs != null) {
+				User user = new User(
+						rs.getInt("ers_user_id"),
+						rs.getString("ers_username"),
+						rs.getString("user_first_name"),
+						rs.getString("user_last_name")
+						);
+				return user;
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 	
 
 }

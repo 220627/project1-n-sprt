@@ -9,10 +9,11 @@ CREATE TABLE ers_reimbursement (
 	reimb_submitted timestamp,
 	reimb_resolved timestamp,
 	reimb_receipt TEXT,
+	reimb_type int
 	reimb_author_fk int REFERENCES ers_users (ers_user_id),
 	reimb_resolver_fk int REFERENCES ers_users (ers_user_id),
 	reimb_status_id_fk int REFERENCES ers_reimbursement_status (reimb_status_id),
-	reimb_type TEXT
+	reimb_type int
 
 )
 
@@ -28,8 +29,18 @@ CREATE TABLE ers_reimbursement_status (
 
 )
 
-INSERT  INTO ers_reimbursement_status (reimb_status)
-VALUES ('Approved'), ('Pending'), ('Denied')
+
+---------------------------------------------------------------------REIMB TYPE--------------------------------------------------------------------------------------------------
+
+
+CREATE TABLE ers_reimbursement_type (
+
+	reimb_type_id serial PRIMARY KEY,
+	reimb_type TEXT
+
+)
+
+DROP TABLE ers_reimbursement_type;
 
 -------------------------------------================================ USER ROLE ========================================-----------------------------------------------------
 
@@ -41,8 +52,7 @@ CREATE TABLE ers_user_roles	 (
 
 )
 
-INSERT INTO ers_user_roles (user_role)
-VALUES ('Finance Manager'), ('Compliance Specialist')
+
 ------------------------------------------------------------------------USERS--------------------------------------------------------------------------------------------------
 
 
@@ -58,9 +68,3 @@ CREATE TABLE ers_users (
 	UNIQUE(ers_username, user_email)
 
 )
-
-INSERT INTO ers_users (ers_username, ers_password, user_first_name, user_last_name, user_email, user_role_id_fk)
-VALUES ('jackenglo1', 'passwordheaven', 'Jack', 'Englo', 'jackenglo1@oscarcorp.com', 2), 
-		('gordorasmuth', 'grownup7', 'Gordo', 'Rasmuth', 'gordoras@oscarcorp.com', 1),
-		('peterhangslin', 'methodb3ast', 'Peter', 'Hangslin', 'peterhangslin@oscarcorp.com', 2),
-		('medinacraig', 'comeflowerspl33z', 'Medina', 'Craig', 'medinacraig@oscarcorp.com', 2)
