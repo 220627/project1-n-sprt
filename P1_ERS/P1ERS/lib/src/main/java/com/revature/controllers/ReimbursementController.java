@@ -1,5 +1,79 @@
 package com.revature.controllers;
 
-public class ReimbursementController {
+import java.util.ArrayList;
 
+import com.google.gson.Gson;
+import com.revature.daos.ReimbursementDAO;
+import com.revature.models.Reimbursement;
+
+import io.javalin.http.Handler;
+
+public class ReimbursementController {
+	
+	ReimbursementDAO rDAO = new ReimbursementDAO();
+	
+	public Handler getReimbursementByStatusHandler	= (ctx)	-> {
+		
+		int statusId = Integer.parseInt(ctx.pathParam("reimb_status_id"));
+		
+		ArrayList<Reimbursement> rArr = rDAO.getReimbursementsByStatus(statusId);
+		
+		Gson gson = new Gson();
+		
+		String JSONReimbursements = gson.toJson(rArr);
+		
+		ctx.result(JSONReimbursements);
+		
+		ctx.status(200);
+		
+		
+	};
+	
+	public Handler insertNewReimbursementHandler = (ctx) -> {
+		
+		ReimbursementDAO rDAO = new ReimbursementDAO();
+		
+		String body = ctx.body();
+		
+		Gson gson = new Gson();
+		
+		Reimbursement newReimb = gson.fromJson(body, Reimbursement.class);
+		
+		if (rDAO.insertNewReimbursement(newReimb)) {
+			ctx.status(202);
+		} else {
+			ctx.status(406);
+		}
+		
+		
+		
+	};
+	
+	public Handler getAllReimbursementsHandler = (ctx) -> {
+		
+		ReimbursementDAO rDAO = new ReimbursementDAO();
+		
+		
+		System.out.println("YUUP, in the ALLREIMBURSEMENTS handler");
+		ArrayList<Reimbursement> rArr = rDAO.getAllReimbursements();//rDAO.getAllReimbursements();
+		
+		System.out.println(rArr.toString());
+		
+		
+		if (rArr != null) {
+			
+			Gson gson = new Gson();
+			String reimbursements = gson.toJson(rArr);
+			ctx.result(reimbursements);
+			ctx.status(200);
+			
+		} else {
+			ctx.status(400);
+		}
+		
+		
+		
+		
+	};
+	
 }

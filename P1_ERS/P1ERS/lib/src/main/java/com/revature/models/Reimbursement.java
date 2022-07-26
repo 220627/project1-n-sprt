@@ -112,6 +112,22 @@ public class Reimbursement {
 		this.reimbType = reimbType;
 	}
 
+	
+	public Reimbursement(int reimbId) {
+		super();
+		this.reimbId = reimbId;
+	}
+	
+
+	@Override
+	public String toString() {
+		return "Reimbursement [reimbId=" + reimbId + ", reimbAmt=" + reimbAmt + ", reimbSubmitted=" + reimbSubmitted
+				+ ", reimbResolved=" + reimbResolved + ", reimbReceipt=" + reimbReceipt + ", reimbType=" + reimbType
+				+ ", reimbAuthorFk=" + reimbAuthorFk + ", resolverFk=" + resolverFk + ", reimbStatusIdFk="
+				+ reimbStatusIdFk + ", reimbStatus=" + reimbStatus + ", reimbAuthor=" + reimbAuthor + ", reimbResolver="
+				+ reimbResolver + "]";
+	}
+
 
 	public int getReimbId() {
 		return reimbId;

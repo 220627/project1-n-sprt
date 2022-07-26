@@ -4,6 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.time.Instant;
+import java.util.ArrayList;
 
 import com.revature.models.Reimbursement;
 import com.revature.models.Status;
@@ -12,8 +15,48 @@ import com.revature.util.ConnectionUtil;
 
 public class ReimbursementDAO {
 	
+	public ArrayList<Reimbursement> getAllReimbursements(){
+		
+		try(Connection conn = ConnectionUtil.getConnection()){
+			
+			String sql = "select * from ers_reimbursement";
+			
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			ArrayList<Reimbursement> rArr = new ArrayList<>();
+			
+			while(rs.next()) {
+				StatusDAO sDAO = new StatusDAO();
+				UserDAO uDAO = new UserDAO();
+				Reimbursement r = new Reimbursement(
+						
+						rs.getInt("reimb_id"),
+						rs.getInt("reimb_amount"),
+						rs.getTimestamp("reimb_submitted"),
+						rs.getTimestamp("reimb_resolved"),
+						rs.getString("reimb_receipt"),
+						rs.getString("reimb_type")
+						);
+				
 	
-	public Reimbursement getReimbursementById(Reimbursement r) {
+				r.setReimbStatus(sDAO.getStatusById(rs.getInt("reimb_status_id_fk")));
+				r.setReimbResolver(uDAO.getUserByID(rs.getInt("reimb_resolver_fk")));		
+				r.setReimbAuthor(uDAO.getUserByID(rs.getInt("reimb_author_fk")));
+				
+				rArr.add(r);
+			
+			}
+			return rArr;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public Reimbursement getReimbursementById(int id) {
 		
 		
 		try (Connection conn = ConnectionUtil.getConnection()) {
@@ -22,7 +65,7 @@ public class ReimbursementDAO {
 			
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
-			ps.setInt(1, r.getReimbId());
+			ps.setInt(1, id);
 			
 			ResultSet rs = ps.executeQuery();
 			
@@ -52,7 +95,7 @@ public class ReimbursementDAO {
 	}
 	
 	
-	public Reimbursement getReimbursementsByStatus(Status status) {
+	public ArrayList<Reimbursement> getReimbursementsByStatus(int statusFk) {
 		
 		try (Connection conn = ConnectionUtil.getConnection()){
 			
@@ -60,14 +103,20 @@ public class ReimbursementDAO {
 			
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
-			ps.setInt(1, status.getReimbStatusId());
+			ps.setInt(1, statusFk);
 			
 			ResultSet rs = ps.executeQuery();
 			
 			UserDAO uDAO = new UserDAO();
 			StatusDAO sDAO = new StatusDAO();
 			
-			if (status.getReimbStatus() == "Pending" ){
+			ArrayList<Reimbursement> rArr = new ArrayList<>();
+			
+			
+			
+			//Pending status
+			
+			if (statusFk == 2 ){
 				while (rs.next()) {
 					Reimbursement reimb = new Reimbursement(
 							rs.getInt("reimb_id"),
@@ -84,12 +133,21 @@ public class ReimbursementDAO {
 					
 					User u = uDAO.getAuthorById(rs.getInt("reimb_author_fk"));
 					
-					
 					reimb.setReimbAuthor(u);
+					
+					
+					rArr.add(reimb);
 				}
+				
+				return rArr;
+				
 			
-			} else if (status.getReimbStatus() == "Denied" || status.getReimbStatus() == "Approved") {
+				//Approved or denied
 			
+			} else if (statusFk == 1 || statusFk == 3) {
+			
+				ArrayList<Reimbursement> reimbArr = new ArrayList<>();
+				
 				while (rs.next()) {
 					Reimbursement reimb = new Reimbursement(
 							rs.getInt("reimb_id"),
@@ -104,8 +162,13 @@ public class ReimbursementDAO {
 					Status s = sDAO.getStatusById(rs.getInt("reimb_status_id_fk"));
 					User us = uDAO.getUserByID(rs.getInt("reimb_resolver_fk"));
 					User u = uDAO.getAuthorById(rs.getInt("reimb_author_fk"));
+					
+					
 					reimb.setReimbAuthor(u);
 					reimb.setReimbResolver(us);
+					
+					
+					reimbArr.add(reimb);
 				
 			}
 				
@@ -114,7 +177,7 @@ public class ReimbursementDAO {
 				
 				//set up SETS to equal author_fk and status_id fk
 				//if reimbursement status is approved
-				return reimb;
+				return reimbArr;
 			}
 			
 			
@@ -132,18 +195,19 @@ public class ReimbursementDAO {
 			
 
 			String sql = "insert into ers_reimbursement (reimb_amount, "
-					+ "reimb_submitted, reimb_author_fk, reimb_type) values "
-					+ "(?, ?, ?, ?);";
+					+ "reimb_submitted, reimb_author_fk, reimb_type, reimb_status_id_fk) values "
+					+ "(?, ?, ?, ?, ?);";
 			
 			
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
 			ps.setInt(1, reimb.getReimbAmt());
-			ps.setTimestamp(2, reimb.getReimbSubmitted());
+			ps.setTimestamp(2, Timestamp.from(Instant.now()));
 			ps.setInt(3, reimb.getReimbAuthorFk());
 			ps.setString(4, reimb.getReimbType());
+			ps.setInt(5, 2);
 			
-			ps.executeQuery();
+			ps.executeUpdate();
 			
 			//if (rs != null) {
 				//ReimbursementDAO rDAO = new ReimbursementDAO();
@@ -161,17 +225,41 @@ public class ReimbursementDAO {
 		
 	}
 	
-	public boolean updateResolver(int id) {
+	
+	public boolean updateResolved(int reimbId) {
 		
-		try(Connection conn = ConnectionUtil.getConnection()) {
-			
-			String sql = "update ers_reimbursement set reimb_resolver_fk = ?;";
+		
+		try (Connection conn = ConnectionUtil.getConnection()){
+			String sql = "update ers_reimbursement set reimb_resolved = ? where reimb_id = ?;";
 			
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
-			ps.setInt(1, id);
+			ps.setTimestamp(1, Timestamp.from(Instant.now()));
+			ps.setInt(2, reimbId);
 			
-			ps.executeQuery();
+			
+			return true;
+		
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+	
+	
+	public boolean updateResolver(int resolverId, int reimbId) {
+		
+		try(Connection conn = ConnectionUtil.getConnection()) {
+			
+			String sql = "update ers_reimbursement set reimb_resolver_fk = ? where reimb_id = ?;";
+			
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, resolverId);
+			ps.setInt(2, reimbId);
+			
+			ps.executeUpdate();
 			
 			return true;
 			
@@ -184,22 +272,26 @@ public class ReimbursementDAO {
 		
 	}
 	
-	public boolean updateReceipt(Reimbursement reimb) {
+	public boolean updateReceipt(int reimbId) {
 		
 		
 		try(Connection conn = ConnectionUtil.getConnection()) {
 			
-			String sql = "update ers_reimbursement set reimb_receipt = ?;";
+			String sql = "update ers_reimbursement set reimb_receipt = ? where reimb_id = ?;";
 			
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
-			reimb.setReimbReceipt("Your recipt for Reimbursement ID " + reimb.getReimbId() + ": \n" + 
+			ReimbursementDAO rDAO = new ReimbursementDAO();
+			
+			Reimbursement reimb = rDAO.getReimbursementById(reimbId);
+			
+			String receipt = "Your recipt for Reimbursement ID " + reimb.getReimbId() + ": \n" + 
 			"Submitted " + reimb.getReimbSubmitted() + " Resolved " + reimb.getReimbResolved() + "\n" +
-					"Author " + reimb.getReimbAuthor() + "Resolver " + reimb.getReimbResolver());
+					"Author " + reimb.getReimbAuthor() + "Resolver " + reimb.getReimbResolver();
 			
-			ps.setString(1, reimb.getReimbReceipt());
+			ps.setString(1, receipt);
 			
-			ps.executeQuery();
+			ps.executeUpdate();
 			
 			return true;
 			
@@ -211,24 +303,52 @@ public class ReimbursementDAO {
 		return false;
 	}
 	
-	public boolean updateReimbursementStatus(int id) {
+	public boolean updateReimbursementStatus(int reimbStatusIdFk, int reimbId) {
 		
 		
 		try(Connection conn = ConnectionUtil.getConnection()) {
 			
-			String sql = "update ers_reimbursement set reimb_status_id_fk = ?;";
+			String sql = "update ers_reimbursement set reimb_status_id_fk = ? where reimb_id = ?;";
 			
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
-			ps.setInt(1, id);
+			ps.setInt(1, reimbStatusIdFk);
+			ps.setInt(2, reimbId);
 			
-			ps.executeQuery();
+			ps.executeUpdate();
 			
 			return true;
 			
 		} catch (SQLException e) {
 			
 			e.printStackTrace();
+			
+		}
+		
+		return false;
+	}
+
+	public boolean resolveReimbursement(int statusId, int reimbId, int resolverId) {
+		
+		
+		
+		try(Connection conn = ConnectionUtil.getConnection()) {
+			
+			ReimbursementDAO rDAO = new ReimbursementDAO();
+			
+			if (rDAO.updateReimbursementStatus(statusId, reimbId) &&
+					rDAO.updateResolved(reimbId) &&
+					rDAO.updateResolver(resolverId, reimbId) &&
+					rDAO.updateReceipt(reimbId)) {
+				
+					return true;
+			}
+			
+	
+			
+			
+			
+		} catch (SQLException e) {
 			
 		}
 		
@@ -236,6 +356,7 @@ public class ReimbursementDAO {
 	}
 	
 }
+
 
 	
 

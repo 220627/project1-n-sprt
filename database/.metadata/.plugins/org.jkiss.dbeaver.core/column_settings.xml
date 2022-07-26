@@ -20,7 +20,7 @@
 		<column name="Comment" visible="true" order="8" width="100"/>
 	</item>
 	<item id="NodeList/PostgreTableColumn">
-		<column name="Column Name" visible="true" order="0" width="116"/>
+		<column name="Column Name" visible="true" order="0" width="246"/>
 		<column name="#" visible="true" order="1" width="100"/>
 		<column name="Data type" visible="true" order="2" width="100"/>
 		<column name="Identity" visible="true" order="3" width="100"/>

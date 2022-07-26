@@ -14,6 +14,8 @@ public class StatusDAO {
 	
 		try (Connection conn = ConnectionUtil.getConnection()) {
 			
+			
+			
 			String sql = "select * from ers_reimbursement_status where reimb_status_id = ?";
 			
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -22,16 +24,17 @@ public class StatusDAO {
 			
 			ResultSet rs = ps.executeQuery();
 			
+			System.out.println("status id: " + id);
 			
 			
-			
-			if (rs != null) {
+			while (rs.next()) {
 				Status s = new Status(rs.getInt("reimb_status_id"),
 									  rs.getString("reimb_status"));
 			
+				
 				return s;
-			
 			}
+			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();

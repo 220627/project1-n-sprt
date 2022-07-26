@@ -23,7 +23,7 @@ public class UserDAO implements UserDAOInterface {
 			
 			ResultSet rs = ps.executeQuery();
 			
-			if (rs != null) {
+			while(rs.next()) {
 				User u = new User(
 						rs.getInt("ers_user_id"),
 						rs.getString("ers_username"),
@@ -35,20 +35,16 @@ public class UserDAO implements UserDAOInterface {
 						);
 				
 				return u;
-			} else { 
-				System.out.println("There was a problem returning your user");
 			}
 			
 			
-			
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+			} catch (SQLException e) {
+				e.printStackTrace();
 		
+			}
+			return null;
+	}	
 		
-		return null;
-	}
 
 	@Override
 	public User getUserByUsername(User user, boolean passToggle) {
@@ -107,6 +103,7 @@ public class UserDAO implements UserDAOInterface {
 						rs.getString("user_first_name"),
 						rs.getString("user_last_name")
 						);
+				
 				return user;
 			}
 			
@@ -118,5 +115,5 @@ public class UserDAO implements UserDAOInterface {
 		return null;
 	}
 	
-
 }
+
