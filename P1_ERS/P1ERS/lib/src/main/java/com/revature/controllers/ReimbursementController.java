@@ -1,10 +1,12 @@
 package com.revature.controllers;
 
+
 import java.util.ArrayList;
 
 import com.google.gson.Gson;
 import com.revature.daos.ReimbursementDAO;
 import com.revature.models.Reimbursement;
+import com.revature.models.ResolutionDTO;
 
 import io.javalin.http.Handler;
 
@@ -54,7 +56,6 @@ public class ReimbursementController {
 		ReimbursementDAO rDAO = new ReimbursementDAO();
 		
 		
-		System.out.println("YUUP, in the ALLREIMBURSEMENTS handler");
 		ArrayList<Reimbursement> rArr = rDAO.getAllReimbursements();//rDAO.getAllReimbursements();
 		
 		System.out.println(rArr.toString());
@@ -71,9 +72,32 @@ public class ReimbursementController {
 			ctx.status(400);
 		}
 		
+	};
+	
+	public Handler reimbursementResolutionHandler = (ctx) -> {
+		
+		ReimbursementDAO rDAO = new ReimbursementDAO();
+		
+		String body = ctx.body();
+		
+		Gson gson = new Gson();
+		
+		ResolutionDTO resolution = gson.fromJson(body, ResolutionDTO.class);
+		
+		if (rDAO.resolveReimbursement(
+				resolution.getStatusId(), 
+				resolution.getReimbId(), 
+				resolution.getResolverId())) 
+		{
+			
+			ctx.status(202);
+		}
+		
+		
 		
 		
 		
 	};
+	
 	
 }

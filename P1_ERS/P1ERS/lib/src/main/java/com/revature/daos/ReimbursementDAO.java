@@ -328,7 +328,7 @@ public class ReimbursementDAO {
 		return false;
 	}
 
-	public boolean resolveReimbursement(int statusId, int reimbId, int resolverId) {
+	public boolean resolveReimbursement(int statusIdFk, int reimbId, int resolverIdFk) {
 		
 		
 		
@@ -336,9 +336,9 @@ public class ReimbursementDAO {
 			
 			ReimbursementDAO rDAO = new ReimbursementDAO();
 			
-			if (rDAO.updateReimbursementStatus(statusId, reimbId) &&
+			if (rDAO.updateReimbursementStatus(statusIdFk, reimbId) &&
 					rDAO.updateResolved(reimbId) &&
-					rDAO.updateResolver(resolverId, reimbId) &&
+					rDAO.updateResolver(resolverIdFk, reimbId) &&
 					rDAO.updateReceipt(reimbId)) {
 				
 					return true;

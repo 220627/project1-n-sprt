@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.revature.models.LoginDTO;
+import com.revature.models.UserDTO;
 import com.revature.services.AuthService;
 
 import io.javalin.http.Handler;
@@ -22,13 +23,19 @@ public class AuthController {
 		
 		LoginDTO lDTO = gson.fromJson(body, LoginDTO.class);
 		
-		String loginUsername = as.login(lDTO.getUsername(), lDTO.getPassword()); //this will either be a String or Null.
+		UserDTO uDTO = as.login(lDTO.getUsername(), lDTO.getPassword()); //this will either be a String or Null.
 		
-		if(loginUsername != null) { //if login is successful...
+		System.out.println("uDTO in auth controller: " + uDTO);
+		
+		if(uDTO != null) { //if login is successful...
 			
 			ses = ctx.req.getSession(); //this is how we create new sessions
 			
-			ctx.result("welcome " + loginUsername);
+			String convertedUDTO = gson.toJson(uDTO);
+			System.out.println("convertedUDTO: " + convertedUDTO);
+			
+			ctx.result(convertedUDTO);
+			
 			ctx.status(202); //202 stands for "accepted"
 			
 		} else {
@@ -36,4 +43,6 @@ public class AuthController {
 		}
 		
 	};
+	
+	
 }

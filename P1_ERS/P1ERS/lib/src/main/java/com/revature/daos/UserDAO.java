@@ -47,7 +47,7 @@ public class UserDAO implements UserDAOInterface {
 		
 
 	@Override
-	public User getUserByUsername(User user, boolean passToggle) {
+	public User getUserByUsername(User user) {
 
 		try (Connection conn = ConnectionUtil.getConnection()){
 			
@@ -88,7 +88,7 @@ public class UserDAO implements UserDAOInterface {
 		
 		try(Connection conn = ConnectionUtil.getConnection()) {
 			
-			String sql = "select * from user where user_id = ?;";
+			String sql = "select (u from user where user_id = ?;";
 			
 			PreparedStatement ps = conn.prepareStatement(sql);
 			

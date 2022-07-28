@@ -3,6 +3,7 @@ package com.revature;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import com.revature.controllers.AuthController;
 import com.revature.controllers.ReimbursementController;
 import com.revature.util.ConnectionUtil;
 
@@ -31,11 +32,15 @@ public class Launcher {
 					).start(3000);
 		
 		ReimbursementController rc = new ReimbursementController();
+		AuthController ac = new AuthController();
 		
 		app.get("/reimbursement/status/:reimb_status_id", rc.getReimbursementByStatusHandler);
 		app.post("/reimbursement/new-reimbursement", rc.insertNewReimbursementHandler);
 		app.get("/reimbursement/all", rc.getAllReimbursementsHandler);
-
+		app.post("/users/login", ac.loginHandler);
+		app.patch("/reimbursement/resolve/:reimbId/:statusId/:resolverId", rc.reimbursementResolutionHandler);
+		
+	
 	}
 
 }

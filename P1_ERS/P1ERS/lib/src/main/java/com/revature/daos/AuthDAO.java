@@ -5,16 +5,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.revature.models.UserDTO;
 import com.revature.util.ConnectionUtil;
 
 public class AuthDAO {
 	
 	
-public boolean login(String username, String password) {
+public UserDTO login(String username, String password) {
 		
 		try(Connection conn = ConnectionUtil.getConnection()){
 			
-		String sql = "select * from users where username = ? and password = ?;";
+		String sql = "select ers_user_id, ers_username, user_role_id_fk from ers_users where ers_username = ? and ers_password = ?;";
 			
 		PreparedStatement ps = conn.prepareStatement(sql);
 		
@@ -25,7 +26,13 @@ public boolean login(String username, String password) {
 		
 		//if anything gets returned at all, we know a user exists with that username/password pair. so we can return true
 		if(rs.next()) {
-			return true;
+			UserDTO uDTO = new UserDTO(
+					rs.getInt("ers_user_id"),
+					rs.getString("ers_username"),
+					rs.getInt("user_role_id_fk")
+					);
+			
+			return uDTO;
 		}
 			
 		} catch (SQLException e) {
@@ -33,7 +40,7 @@ public boolean login(String username, String password) {
 			e.printStackTrace();
 		}
 		
-		return false;
+		return null;
 		
 	}
 }

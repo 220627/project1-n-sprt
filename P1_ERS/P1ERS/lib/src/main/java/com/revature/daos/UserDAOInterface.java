@@ -6,7 +6,7 @@ public interface UserDAOInterface {
 	
 	User getUserByID(int id);
 	
-	User getUserByUsername(User user, boolean passToggle);
+	User getUserByUsername(User user);
 	
 	
 }
