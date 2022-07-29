@@ -133,8 +133,11 @@ public class ReimbursementDAO {
 					
 					User u = uDAO.getAuthorById(rs.getInt("reimb_author_fk"));
 					
+					System.out.println("user in DAO: " + u);
+					
 					reimb.setReimbAuthor(u);
 					
+					System.out.println("author in the DAO: " + reimb.getReimbAuthor());
 					
 					rArr.add(reimb);
 				}
@@ -160,15 +163,23 @@ public class ReimbursementDAO {
 							);
 					
 					Status s = sDAO.getStatusById(rs.getInt("reimb_status_id_fk"));
+					
+					System.out.println("status: " + s);
+					
 					User us = uDAO.getUserByID(rs.getInt("reimb_resolver_fk"));
+					
+					System.out.println("resolver: " + us);
+					
 					User u = uDAO.getAuthorById(rs.getInt("reimb_author_fk"));
 					
+					System.out.println("author: " + u);
 					
 					reimb.setReimbAuthor(u);
 					reimb.setReimbResolver(us);
 					
 					
 					reimbArr.add(reimb);
+					return reimbArr;
 				
 			}
 				

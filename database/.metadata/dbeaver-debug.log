@@ -1,13 +1,13 @@
-2022-07-25 13:03:13.445 - Create display
-2022-07-25 13:03:13.610 - DBeaver 22.1.0.202206051253 is starting
-2022-07-25 13:03:13.612 - OS: Windows 10 10.0 (amd64)
-2022-07-25 13:03:13.612 - Java version: 11.0.12 by Eclipse Foundation (64bit)
-2022-07-25 13:03:13.613 - Install path: 'C:\Program Files\DBeaver'
-2022-07-25 13:03:13.613 - Instance path: 'file:/C:/Users/thndr/OneDrive/Documents/Code/revature_eclipse/project1-n-sprt/database/'
-2022-07-25 13:03:13.614 - Memory available 64Mb/1024Mb
+2022-07-28 18:56:28.128 - Create display
+2022-07-28 18:56:28.292 - DBeaver 22.1.0.202206051253 is starting
+2022-07-28 18:56:28.295 - OS: Windows 10 10.0 (amd64)
+2022-07-28 18:56:28.295 - Java version: 11.0.12 by Eclipse Foundation (64bit)
+2022-07-28 18:56:28.296 - Install path: 'C:\Program Files\DBeaver'
+2022-07-28 18:56:28.296 - Instance path: 'file:/C:/Users/thndr/OneDrive/Documents/Code/revature_eclipse/project1-n-sprt/database/'
+2022-07-28 18:56:28.297 - Memory available 64Mb/1024Mb
 > Start DBeaver UI Editors - Base [org.jkiss.dbeaver.ui.editors.base 1.0.83.202206051253]
-2022-07-25 13:03:13.651 - Starting RMI server at 31270
-2022-07-25 13:03:13.733 - Run workbench
+2022-07-28 18:56:28.329 - Starting RMI server at 63023
+2022-07-28 18:56:28.429 - Run workbench
 > Start Eclipse e4 Workbench SWT [org.eclipse.e4.ui.workbench.swt 0.16.400.v20220222-1128]
 > Start Eclipse Application Services [org.eclipse.e4.core.services 2.3.100.v20210910-0640]
 > Start Eclipse UI Application Services [org.eclipse.e4.ui.services 1.5.0.v20210115-1333]
@@ -20,82 +20,48 @@
 > Start Eclipse CSS SWT Support [org.eclipse.e4.ui.css.swt 0.14.400.v20211026-1534]
 > Start DBeaver UI [org.jkiss.dbeaver.ui 5.1.98.202206051253]
 > Start Java Native Access [com.sun.jna 5.8.0.v20210503-0343]
-2022-07-25 13:03:17.160 - Configure workbench window
+2022-07-28 18:56:32.160 - Configure workbench window
 > Start Help System Core [org.eclipse.help 3.9.100.v20210721-0601]
-2022-07-25 13:03:17.427 - Create actions
-2022-07-25 13:03:17.443 - Disable Eclipse action set 'org.eclipse.ui.edit.text.actionSet.annotationNavigation'
-2022-07-25 13:03:17.445 - Disable Eclipse action set 'org.eclipse.ui.WorkingSetActionSet'
-2022-07-25 13:03:17.445 - Disable Eclipse action set 'org.eclipse.ui.actionSet.openFiles'
-2022-07-25 13:03:18.342 - Initialize workbench window
-2022-07-25 13:03:18.357 - Finish initialization
+2022-07-28 18:56:32.416 - Create actions
+2022-07-28 18:56:32.427 - Disable Eclipse action set 'org.eclipse.ui.edit.text.actionSet.annotationNavigation'
+2022-07-28 18:56:32.428 - Disable Eclipse action set 'org.eclipse.ui.WorkingSetActionSet'
+2022-07-28 18:56:32.429 - Disable Eclipse action set 'org.eclipse.ui.actionSet.openFiles'
+2022-07-28 18:56:33.364 - Initialize workbench window
+2022-07-28 18:56:33.373 - Finish initialization
 > Start Default Text Editor [org.eclipse.ui.editors 3.14.300.v20210913-0815]
 > Start Text Editor Framework [org.eclipse.ui.workbench.texteditor 3.16.400.v20220218-1619]
 > Start DBeaver UI Editors - Data [org.jkiss.dbeaver.ui.editors.data 1.0.83.202206051253]
+> Start DBeaver SQL Model [org.jkiss.dbeaver.model.sql 1.0.73.202206051253]
+> Start DBeaver UI Editors - SQL [org.jkiss.dbeaver.ui.editors.sql 1.0.83.202206051253]
+> Start Team Support Core [org.eclipse.team.core 3.9.300.v20220204-0611]
+> Start Core Compare Support [org.eclipse.compare.core 3.6.1000.v20201020-1107]
 > Start Equinox Java Authentication and Authorization Service (JAAS) [org.eclipse.equinox.security 1.3.900.v20220108-1321]
 > Start Internet Connection Management UI [org.eclipse.ui.net 1.4.0.v20210426-0838]
 > Start Internet Connection Management [org.eclipse.core.net 1.3.1100.v20210424-0724]
-> Start DBeaver SQL Model [org.jkiss.dbeaver.model.sql 1.0.73.202206051253]
-2022-07-25 13:03:21.104 - Script dialect 'databricks' not found in registry (for data source provider databricks). Use default.
-2022-07-25 13:03:21.156 - Loading user drivers configuration from 'C:\Users\thndr\OneDrive\Documents\Code\revature_eclipse\project1-n-sprt\database\.metadata\.plugins\org.jkiss.dbeaver.core\drivers.xml'
-2022-07-25 13:03:21.173 - Total database drivers: 100 (100)
+2022-07-28 18:56:37.007 - Script dialect 'databricks' not found in registry (for data source provider databricks). Use default.
+2022-07-28 18:56:37.068 - Loading user drivers configuration from 'C:\Users\thndr\OneDrive\Documents\Code\revature_eclipse\project1-n-sprt\database\.metadata\.plugins\org.jkiss.dbeaver.core\drivers.xml'
+2022-07-28 18:56:37.093 - Total database drivers: 100 (100)
 > Start DBeaver Sample Database [org.jkiss.dbeaver.ext.sample.database 1.0.120.202206051253]
 > Start DBeaver Tip of the day [org.jkiss.dbeaver.ext.ui.tipoftheday 1.0.89.202206051253]
-> Start DBeaver UI Editors - SQL [org.jkiss.dbeaver.ui.editors.sql 1.0.83.202206051253]
 > Start Draw2d [org.eclipse.draw2dl 3.12.100.20220506142945]
 > Start GEF3 GEF (MVC) [org.eclipse.gef3 3.12.100.20220506142945]
 > Start DBeaver ERD UI [org.jkiss.dbeaver.erd.ui 3.0.43.202206051253]
 > Start DBeaver ERD Model [org.jkiss.dbeaver.erd.model 1.0.43.202206051253]
-2022-07-25 13:03:22.403 - Connect with 'projects' (postgres-jdbc-182211ccf71-4c886ea9bc9b7bf6)
-> Start DBeaver PostgreSQL Support [org.jkiss.dbeaver.ext.postgresql 2.1.156.202206051253]
-> Start DBeaver GIS Support [org.jkiss.dbeaver.data.gis 1.0.107.202206051253]
-2022-07-25 13:03:22.988 - Execution context opened (projects; Main <postgres>; 0)
-2022-07-25 13:03:22.988 - Initiate connection to PostgreSQL database [postgres@localhost] for Main <postgres>
-2022-07-25 13:03:23.239 - Execution context opened (projects; Metadata <postgres>; 1)
-2022-07-25 13:03:23.239 - Initiate connection to PostgreSQL database [postgres@localhost] for Metadata <postgres>
-2022-07-25 13:03:23.451 - Connected (postgres-jdbc-182211ccf71-4c886ea9bc9b7bf6, PostgreSQL JDBC Driver [42.2.25])
-2022-07-25 13:03:23.749 - Open [https://dbeaver.io/product/version.xml]
-2022-07-25 13:03:24.518 - Execution context opened (projects; Main <ERS>; 2)
-2022-07-25 13:03:24.520 - Initiate connection to PostgreSQL database [ERS@localhost] for Main <ERS>
-2022-07-25 13:03:24.726 - Execution context opened (projects; Metadata <ERS>; 3)
-2022-07-25 13:03:24.729 - Initiate connection to PostgreSQL database [ERS@localhost] for Metadata <ERS>
-> Start DBeaver PostgreSQL Support UI [org.jkiss.dbeaver.ext.postgresql.ui 1.0.59.202206051253]
-2022-07-25 15:06:05.448 - System suspend detected! Reinitialize all remote connections.
-2022-07-25 17:53:51.779 - System suspend detected! Reinitialize all remote connections.
-2022-07-25 19:04:32.823 - System suspend detected! Reinitialize all remote connections.
-> Start Team Support Core [org.eclipse.team.core 3.9.300.v20220204-0611]
-> Start Core Compare Support [org.eclipse.compare.core 3.6.1000.v20201020-1107]
 > Start Console [org.eclipse.ui.console 3.11.100.v20210721-1355]
 > Start Debug Core [org.eclipse.debug.core 3.19.0.v20220125-2302]
-2022-07-25 20:30:58.998 - Execution context opened (projects; SQLEditor <ers_home.sql>; 4)
-2022-07-25 20:30:59.000 - Initiate connection to PostgreSQL database [ERS@localhost] for SQLEditor <ers_home.sql>
-2022-07-25 20:31:57.752 - Can't get column 'arg_defaults': The column name arg_defaults was not found in this ResultSet.
-2022-07-25 20:31:57.754 - Can't get column 'protransform': The column name protransform was not found in this ResultSet.
-2022-07-25 20:31:57.754 - Can't get column 'proisagg': The column name proisagg was not found in this ResultSet.
-2022-07-25 20:31:57.754 - Can't get column 'proiswindow': The column name proiswindow was not found in this ResultSet.
-2022-07-25 20:31:57.755 - Can't get column 'description': The column name description was not found in this ResultSet.
-2022-07-25 20:32:32.447 - Error parsing query
-org.eclipse.jface.text.BadLocationException
-	at org.eclipse.jface.text.AbstractDocument.get(AbstractDocument.java:967)
-	at org.eclipse.core.internal.filebuffers.SynchronizableDocument.get(SynchronizableDocument.java:130)
-	at org.jkiss.dbeaver.model.sql.parser.SQLScriptParser.parseQuery(SQLScriptParser.java:106)
-	at org.jkiss.dbeaver.model.sql.parser.SQLScriptParser.extractScriptQueries(SQLScriptParser.java:772)
-	at org.jkiss.dbeaver.ui.editors.sql.SQLEditorBase.extractScriptQueries(SQLEditorBase.java:780)
-	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLReconcilingStrategy.extractQueries(SQLReconcilingStrategy.java:243)
-	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLReconcilingStrategy.reconcile(SQLReconcilingStrategy.java:187)
-	at org.jkiss.dbeaver.ui.editors.sql.syntax.SQLReconcilingStrategy.reconcile(SQLReconcilingStrategy.java:84)
-	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
-	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
-2022-07-26 08:43:59.506 - System suspend detected! Reinitialize all remote connections.
-2022-07-26 09:23:03.960 - System suspend detected! Reinitialize all remote connections.
-2022-07-26 10:45:09.103 - System suspend detected! Reinitialize all remote connections.
-2022-07-26 23:09:07.001 - System suspend detected! Reinitialize all remote connections.
-2022-07-27 03:45:47.168 - System suspend detected! Reinitialize all remote connections.
-2022-07-27 10:03:58.069 - System suspend detected! Reinitialize all remote connections.
-2022-07-27 17:57:11.006 - System suspend detected! Reinitialize all remote connections.
-2022-07-27 18:33:13.597 - System suspend detected! Reinitialize all remote connections.
-2022-07-27 22:55:54.891 - System suspend detected! Reinitialize all remote connections.
-2022-07-28 16:04:02.337 - Execution context closed (projects, 4)
-2022-07-28 16:04:03.447 - DBeaver is stopping
-2022-07-28 16:04:03.450 - Stop RMI server
-2022-07-28 16:04:03.457 - RMI controller has been stopped
-2022-07-28 16:04:03.486 - DBeaver shutdown completed
+2022-07-28 18:56:39.451 - Connect with 'projects' (postgres-jdbc-182211ccf71-4c886ea9bc9b7bf6)
+> Start DBeaver PostgreSQL Support [org.jkiss.dbeaver.ext.postgresql 2.1.156.202206051253]
+2022-07-28 18:56:39.529 - Open [https://dbeaver.io/product/version.xml]
+> Start DBeaver GIS Support [org.jkiss.dbeaver.data.gis 1.0.107.202206051253]
+2022-07-28 18:56:40.200 - Execution context opened (projects; Main <postgres>; 0)
+2022-07-28 18:56:40.200 - Initiate connection to PostgreSQL database [postgres@localhost] for Main <postgres>
+2022-07-28 18:56:40.365 - Execution context opened (projects; Metadata <postgres>; 1)
+2022-07-28 18:56:40.366 - Initiate connection to PostgreSQL database [postgres@localhost] for Metadata <postgres>
+2022-07-28 18:56:40.771 - Connected (postgres-jdbc-182211ccf71-4c886ea9bc9b7bf6, PostgreSQL JDBC Driver [42.2.25])
+2022-07-28 18:56:40.863 - No execution context within database instance
+2022-07-28 18:56:40.863 - Execution context opened (projects; SQLEditor <ers_home.sql>; 2)
+2022-07-28 18:56:40.865 - Initiate connection to PostgreSQL database [ERS@localhost] for SQLEditor <ers_home.sql>
+2022-07-28 18:56:41.480 - Execution context opened (projects; Main <ERS>; 3)
+2022-07-28 18:56:41.480 - Initiate connection to PostgreSQL database [ERS@localhost] for Main <ERS>
+2022-07-28 18:56:41.906 - Execution context opened (projects; Metadata <ERS>; 4)
+2022-07-28 18:56:41.907 - Initiate connection to PostgreSQL database [ERS@localhost] for Metadata <ERS>

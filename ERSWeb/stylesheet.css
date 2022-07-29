@@ -76,3 +76,117 @@ input[type=password] {
     margin-top: 40px;
     border-radius: 5px;
 }
+
+.container {
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    margin-top: 8%;
+    margin-left: 10px;
+    height: 85%;
+}
+
+.container button {
+
+    display: inline;
+    margin-left: 80%;
+    margin-bottom: 10px;
+    width: 75px;
+
+}
+
+#specialist-reimbursements-table {
+    margin-left: 60px;
+    border: 2px solid green;
+    border-radius: 20px;
+    border-collapse: collapse;
+}
+
+#specialist-reimbursements-table th {
+    border: 2px solid green;
+    box-shadow: 1px 3px 2px 2px rgba(150, 170, 99, .3);
+    background-color: rgb(250, 236, 217);
+    padding: 5px;
+    border-radius:10px;
+    width: 95px;
+    
+}
+
+#specialist-reimbursements-table tr {
+   height: 10px;
+   
+}
+
+#specialist-reimbursements-table td {
+    border: 2px solid green;
+    text-align: center;
+   
+}
+
+#specialist-view-all-reimbursements {
+    width: 75px;
+}
+
+#submit-new {
+    position: fixed;
+    left: 64%;
+    top: 27%;
+    background-color:  rgb(245, 200, 141);
+    border-color:rgb(80, 158, 44);
+    border-radius: 3px;
+    height: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.selectors {
+    background-color: rgb(245, 200, 141);
+    border-radius: 3px;
+    
+    border-color:rgb(80, 158, 44);
+}
+
+#welcome-first-name {
+    float: left;
+    position: fixed;
+    top: 136px;
+    left: 320px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(68, 84, 226);
+
+}
+
+#container {
+    margin-left: 36%;
+    
+}
+
+.create-new-inputs-area {
+    position: fixed;
+    top: 40%;
+    left: 32%;
+    border: 2px solid green;
+    padding-left: 150px;
+    padding-right: 150px;
+    padding-bottom: 100px;
+    padding-top: 100px;
+    background-color: rgb(253, 225, 188);
+    margin: 0 auto;
+
+}
+
+.inputs-new-reimbursement {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#create-new-reimbursement-button {
+    display: block;
+    position: fixed;
+    top: 480px;
+    left: 665px;
+    width: 120px;
+    background-color: rgb(245, 200, 141);
+    border-radius: 3px;
+    border-color:rgb(80, 158, 44);
+
+}

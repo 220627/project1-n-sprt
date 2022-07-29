@@ -18,11 +18,14 @@ public class ReimbursementController {
 		
 		int statusId = Integer.parseInt(ctx.pathParam("reimb_status_id"));
 		
-		ArrayList<Reimbursement> rArr = rDAO.getReimbursementsByStatus(statusId);
+		System.out.println("statusId in the HANDLER: " + statusId);
 		
+		ArrayList<Reimbursement> rArr = rDAO.getReimbursementsByStatus(statusId);
+		System.out.println("look: " + rArr);
 		Gson gson = new Gson();
 		
 		String JSONReimbursements = gson.toJson(rArr);
+		System.out.println("JSON IN THE HANDLER: " + JSONReimbursements);
 		
 		ctx.result(JSONReimbursements);
 		
