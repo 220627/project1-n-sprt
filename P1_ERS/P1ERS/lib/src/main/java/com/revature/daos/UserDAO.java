@@ -15,13 +15,19 @@ public class UserDAO implements UserDAOInterface {
 
 		try (Connection conn = ConnectionUtil.getConnection()){
 			
+			System.out.println("entering get user by id");
+			
 			String sql = "select * from ers_users where ers_user_id = ?";
 			
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
 			ps.setInt(1, id);
 			
+			
+			
 			ResultSet rs = ps.executeQuery();
+			
+			System.out.println(rs);
 			
 			while(rs.next()) {
 				User u = new User(
@@ -33,7 +39,7 @@ public class UserDAO implements UserDAOInterface {
 						rs.getString("user_email"),
 						rs.getInt("user_role_id_fk")
 						);
-				
+				System.out.println("USER: " + u);
 				return u;
 			}
 			
@@ -88,7 +94,7 @@ public class UserDAO implements UserDAOInterface {
 		
 		try(Connection conn = ConnectionUtil.getConnection()) {
 			
-			String sql = "select (u from user where user_id = ?;";
+			String sql = "select * from ers_users where ers_user_id = ?;";
 			
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
@@ -96,7 +102,7 @@ public class UserDAO implements UserDAOInterface {
 			
 			ResultSet rs = ps.executeQuery();
 			
-			if (rs != null) {
+			if (rs.next()) {
 				User user = new User(
 						rs.getInt("ers_user_id"),
 						rs.getString("ers_username"),

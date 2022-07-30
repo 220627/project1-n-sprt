@@ -129,8 +129,8 @@ input[type=password] {
 
 #submit-new {
     position: fixed;
-    left: 64%;
-    top: 27%;
+    left: 1170px;
+    top: 200px;
     background-color:  rgb(245, 200, 141);
     border-color:rgb(80, 158, 44);
     border-radius: 3px;
@@ -182,11 +182,27 @@ input[type=password] {
 #create-new-reimbursement-button {
     display: block;
     position: fixed;
-    top: 480px;
-    left: 665px;
+    top: 555px;
+    left: 690px;
     width: 120px;
     background-color: rgb(245, 200, 141);
     border-radius: 3px;
     border-color:rgb(80, 158, 44);
 
+}
+
+#resolve-button {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(242, 219, 190);
+    border-radius: 3px;
+    border-color:rgb(80, 158, 44);
+    
+}
+
+#approve_button {
+    margin: 0;
+    padding: 0;
+    
+    
 }

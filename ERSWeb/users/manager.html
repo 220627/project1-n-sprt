@@ -4,41 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Document</title><link rel="stylesheet" href="../stylesheet.css">
 </head>
 <body>
-    <h3>Welcome</h3>
-    <button id="view-all">View All Reimbursements</button>
-    <button id="view-pending">View Pending Reimbursements</button>
-    <button id="view-approved">View Approved Reimbursements</button>
-    <button id="view-denied">View Denied Reimbursements</button>
-
-
-
-    <table id="manager-reimbursement-table">
+    <header>
+        <h2 id="oscar-corp-title">OSCAR CORP</h2>
+        <h2 id="osc-ers-title">OSC ERS</h2>
+    </header>
+    <h2 id="welcome-first-name"></h2>
+    <button id="submit-new" onClick="location.href='/reimbursement/NewReimbursement.html'">Submit new</button>
+    <div class="container">
+        <div id="status-selectors">
+            <button class="selectors" id="approved">
+                Approved
+            </button>
+            <button class="selectors" id="pending">
+                Pending
+            </button>
+            <button class="selectors" id="denied">
+                Denied
+            </button>
+            <button class="selectors" id="specialist-view-all-reimbursements"> View all</button>
+        </div>
+       
+    
+    <table id="specialist-reimbursements-table">
         <thead>
             <th>Amount</th>
-            <th>Submitted</th>
-            <th>Resolved</th>
+            <th>Date Submitted</th>
+            <th>Data Resolved</th>
             <th>Receipt</th>
             <th>Author</th>
             <th>Resolver</th>
-            <th>Status</th>
             <th>Type</th>
+            <th>Status</th>
+            <th>Approve</th>
+            <th>Deny</th>
         </thead>
-        <tbody>
-            <tr>
-                <td id="manager-reimb-amount"></td>
-                <td id="manager-reimb-submitted"></td>
-                <td id="manager-reimb-resolved"></td>
-                <td id="manager-receipt"></td>
-                <td id="manager-author"></td>
-                <td id="manager-resolver"></td>
-                <td id="manager-status"></td>
-                <td id="manager-type"></td>
-            </tr>
+        <tbody id="specialist-chosen-info">
+            
         </tbody>
-    </table>
 
+    </table>
+</div>
+    <script src="script.js"></script>
 </body>
 </html>

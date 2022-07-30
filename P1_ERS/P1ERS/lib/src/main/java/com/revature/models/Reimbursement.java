@@ -22,6 +22,14 @@ public class Reimbursement {
 		super();
 	}
 
+	public Reimbursement(int reimbAmt, String reimbType, int reimbAuthorFk, int reimbStatusIdFk) {
+		super();
+		this.reimbAmt = reimbAmt;
+		this.reimbType = reimbType;
+		this.reimbAuthorFk = reimbAuthorFk;
+		this.reimbStatusIdFk = reimbStatusIdFk;
+	}
+	
 
 	public Reimbursement(int reimbId, int reimbAmt, Timestamp reimbSubmitted, Timestamp reimbResolved,
 			String reimbReceipt, String reimbType) {
@@ -113,10 +121,7 @@ public class Reimbursement {
 	}
 
 	
-	public Reimbursement(int reimbId) {
-		super();
-		this.reimbId = reimbId;
-	}
+	
 	
 
 	@Override

@@ -20,8 +20,6 @@ async function login () {
         body: JSON.stringify(userCreds),
         credentials: "include"
     })
-    
-    
      
     if (response.status === 202) {
         let data = await response.text();
@@ -35,8 +33,6 @@ async function login () {
 
 
         roleId = userSession.roleId
-
-
 
         if (roleId != 0){
             if (roleId == 1) {
@@ -56,3 +52,5 @@ async function login () {
     }
 
 }
+
+

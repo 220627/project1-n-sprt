@@ -74,7 +74,7 @@ public class ReimbursementDAO {
 				Reimbursement reimb = new Reimbursement( 
 						rs.getInt("reimb_id"),
 						rs.getInt("reimb_amount"),
-						rs.getTimestamp("reimbSubmitted"),
+						rs.getTimestamp("reimb_submitted"),
 						rs.getString("reimb_receipt"),
 						rs.getString("reimb_type")
 //---- FINISH WRITNG!!!!---- YOU NEED GETELEMENT BY IDs FOR ALL OBJECTS!!!! 
@@ -99,6 +99,8 @@ public class ReimbursementDAO {
 		
 		try (Connection conn = ConnectionUtil.getConnection()){
 			
+			System.out.println("Status fk for get by status: " + statusFk);
+			
 			String sql = "select * from ers_reimbursement where reimb_status_id_fk = ?;";
 			
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -106,6 +108,8 @@ public class ReimbursementDAO {
 			ps.setInt(1, statusFk);
 			
 			ResultSet rs = ps.executeQuery();
+			
+			System.out.println("result set from get by status: " + rs);
 			
 			UserDAO uDAO = new UserDAO();
 			StatusDAO sDAO = new StatusDAO();
@@ -121,7 +125,7 @@ public class ReimbursementDAO {
 					Reimbursement reimb = new Reimbursement(
 							rs.getInt("reimb_id"),
 							rs.getInt("reimb_amount"),
-							rs.getTimestamp("reimbSubmitted"),
+							rs.getTimestamp("reimb_submitted"),
 							rs.getString("reimb_type")
 							);
 					
@@ -148,10 +152,11 @@ public class ReimbursementDAO {
 				//Approved or denied
 			
 			} else if (statusFk == 1 || statusFk == 3) {
-			
+				System.out.println("Getting ready to create a new reimbursement");
 				ArrayList<Reimbursement> reimbArr = new ArrayList<>();
 				
 				while (rs.next()) {
+					System.out.println("in the while loop");
 					Reimbursement reimb = new Reimbursement(
 							rs.getInt("reimb_id"),
 							rs.getInt("reimb_amount"),
@@ -163,6 +168,8 @@ public class ReimbursementDAO {
 							);
 					
 					Status s = sDAO.getStatusById(rs.getInt("reimb_status_id_fk"));
+					
+					System.out.println("S from the sDAO (status object)");
 					
 					System.out.println("status: " + s);
 					
@@ -179,6 +186,9 @@ public class ReimbursementDAO {
 					
 					
 					reimbArr.add(reimb);
+					
+					System.out.println("reimb arr val: " + reimbArr);
+					
 					return reimbArr;
 				
 			}
@@ -237,7 +247,7 @@ public class ReimbursementDAO {
 	}
 	
 	
-	public boolean updateResolved(int reimbId) {
+	public boolean finalizeResolved(int reimbId) {
 		
 		
 		try (Connection conn = ConnectionUtil.getConnection()){
@@ -259,7 +269,7 @@ public class ReimbursementDAO {
 	}
 	
 	
-	public boolean updateResolver(int resolverId, int reimbId) {
+	public boolean finalizeResolver(int resolverId, int reimbId) {
 		
 		try(Connection conn = ConnectionUtil.getConnection()) {
 			
@@ -283,7 +293,7 @@ public class ReimbursementDAO {
 		
 	}
 	
-	public boolean updateReceipt(int reimbId) {
+	public boolean finalizeReceipt(int reimbId) {
 		
 		
 		try(Connection conn = ConnectionUtil.getConnection()) {
@@ -301,6 +311,7 @@ public class ReimbursementDAO {
 					"Author " + reimb.getReimbAuthor() + "Resolver " + reimb.getReimbResolver();
 			
 			ps.setString(1, receipt);
+			ps.setInt(2, reimbId);
 			
 			ps.executeUpdate();
 			
@@ -314,7 +325,7 @@ public class ReimbursementDAO {
 		return false;
 	}
 	
-	public boolean updateReimbursementStatus(int reimbStatusIdFk, int reimbId) {
+	public boolean finalizeStatus(int reimbStatusIdFk, int reimbId) {
 		
 		
 		try(Connection conn = ConnectionUtil.getConnection()) {
@@ -339,7 +350,7 @@ public class ReimbursementDAO {
 		return false;
 	}
 
-	public boolean resolveReimbursement(int statusIdFk, int reimbId, int resolverIdFk) {
+	public boolean finalizeRecord (int statusIdFk, int reimbId, int resolverIdFk) {
 		
 		
 		
@@ -347,18 +358,14 @@ public class ReimbursementDAO {
 			
 			ReimbursementDAO rDAO = new ReimbursementDAO();
 			
-			if (rDAO.updateReimbursementStatus(statusIdFk, reimbId) &&
-					rDAO.updateResolved(reimbId) &&
-					rDAO.updateResolver(resolverIdFk, reimbId) &&
-					rDAO.updateReceipt(reimbId)) {
+			if (rDAO.finalizeStatus(statusIdFk, reimbId) &&
+					rDAO.finalizeResolved(reimbId) &&
+					rDAO.finalizeResolver(resolverIdFk, reimbId) &&
+					rDAO.finalizeReceipt(reimbId)) {
 				
 					return true;
 			}
-			
-	
-			
-			
-			
+			 
 		} catch (SQLException e) {
 			
 		}

@@ -65,3 +65,8 @@
 2022-07-28 18:56:41.480 - Initiate connection to PostgreSQL database [ERS@localhost] for Main <ERS>
 2022-07-28 18:56:41.906 - Execution context opened (projects; Metadata <ERS>; 4)
 2022-07-28 18:56:41.907 - Initiate connection to PostgreSQL database [ERS@localhost] for Metadata <ERS>
+> Start DBeaver PostgreSQL Support UI [org.jkiss.dbeaver.ext.postgresql.ui 1.0.59.202206051253]
+2022-07-29 02:48:56.322 - System suspend detected! Reinitialize all remote connections.
+2022-07-29 14:33:54.543 - System suspend detected! Reinitialize all remote connections.
+2022-07-29 15:00:56.265 - System suspend detected! Reinitialize all remote connections.
+2022-07-30 11:15:40.259 - System suspend detected! Reinitialize all remote connections.

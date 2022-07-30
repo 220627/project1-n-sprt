@@ -18,10 +18,12 @@ public class ReimbursementController {
 		
 		int statusId = Integer.parseInt(ctx.pathParam("reimb_status_id"));
 		
-		System.out.println("statusId in the HANDLER: " + statusId);
+		System.out.println("statusId " + statusId);
+		
+		System.out.println("statusId in the HANDLER : " + statusId);
 		
 		ArrayList<Reimbursement> rArr = rDAO.getReimbursementsByStatus(statusId);
-		System.out.println("look: " + rArr);
+		
 		Gson gson = new Gson();
 		
 		String JSONReimbursements = gson.toJson(rArr);
@@ -41,8 +43,10 @@ public class ReimbursementController {
 		String body = ctx.body();
 		
 		Gson gson = new Gson();
+		System.out.println("got here");
 		
 		Reimbursement newReimb = gson.fromJson(body, Reimbursement.class);
+		
 		
 		if (rDAO.insertNewReimbursement(newReimb)) {
 			ctx.status(202);
@@ -85,12 +89,18 @@ public class ReimbursementController {
 		
 		Gson gson = new Gson();
 		
-		ResolutionDTO resolution = gson.fromJson(body, ResolutionDTO.class);
+		ResolutionDTO finalizeDTO = gson.fromJson(body, ResolutionDTO.class);
 		
-		if (rDAO.resolveReimbursement(
-				resolution.getStatusId(), 
-				resolution.getReimbId(), 
-				resolution.getResolverId())) 
+		//our resolveReimbursement method actually calls four different methods.
+		//the resolution object is constructed out of the body of the POST request.
+		//resolverObj contains the fields needed to call resolveReimbursement.
+		//the parameters call for three arguments, status, reimbid, and resolverid
+		//these are passed into the resolveReimbursement
+		
+		if (rDAO.finalizeRecord(
+				finalizeDTO.getStatusId(),   
+				finalizeDTO.getReimbId(), 
+				finalizeDTO.getResolverId())) 
 		{
 			
 			ctx.status(202);

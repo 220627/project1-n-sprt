@@ -38,7 +38,7 @@ public class Launcher {
 		app.post("/reimbursement/new-reimbursement", rc.insertNewReimbursementHandler);
 		app.get("/reimbursement/all", rc.getAllReimbursementsHandler);
 		app.post("/users/login", ac.loginHandler);
-		app.patch("/reimbursement/resolve/:reimbId/:statusId/:resolverId", rc.reimbursementResolutionHandler);
+		app.patch("/reimbursement/finalize", rc.reimbursementResolutionHandler);
 		
 	
 	}
