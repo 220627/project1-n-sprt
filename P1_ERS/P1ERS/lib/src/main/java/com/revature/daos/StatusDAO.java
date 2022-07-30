@@ -9,7 +9,7 @@ import com.revature.models.Status;
 import com.revature.util.ConnectionUtil;
 
 public class StatusDAO {
-	public Status getStatusById(int id) {
+	public Status statusRecordById(int id) {
 		
 	
 		try (Connection conn = ConnectionUtil.getConnection()) {

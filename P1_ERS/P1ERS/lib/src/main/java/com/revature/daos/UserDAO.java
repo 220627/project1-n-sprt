@@ -11,7 +11,7 @@ import com.revature.util.ConnectionUtil;
 public class UserDAO implements UserDAOInterface {
 
 	@Override
-	public User getUserByID(int id) {
+	public User userRecordById(int id) {
 
 		try (Connection conn = ConnectionUtil.getConnection()){
 			

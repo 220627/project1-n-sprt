@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -42,8 +43,8 @@ public class ReimbursementDAO {
 				
 	
 				r.setReimbStatus(sDAO.getStatusById(rs.getInt("reimb_status_id_fk")));
-				r.setReimbResolver(uDAO.getUserByID(rs.getInt("reimb_resolver_fk")));		
-				r.setReimbAuthor(uDAO.getUserByID(rs.getInt("reimb_author_fk")));
+				r.setReimbResolver(uDAO.userRecordById(rs.getInt("reimb_resolver_fk")));		
+				r.setReimbAuthor(uDAO.userRecordById(rs.getInt("reimb_author_fk")));
 				
 				rArr.add(r);
 			
@@ -95,112 +96,40 @@ public class ReimbursementDAO {
 	}
 	
 	
-	public ArrayList<Reimbursement> getReimbursementsByStatus(int statusFk) {
+	public ArrayList<Reimbursement> getApprovedRecords(int statusFk) {
 		
 		try (Connection conn = ConnectionUtil.getConnection()){
 			
-			System.out.println("Status fk for get by status: " + statusFk);
+			System.out.println("(GRBS): Arg val: var: 'statusfk': " + statusFk);
 			
 			String sql = "select * from ers_reimbursement where reimb_status_id_fk = ?;";
 			
-			PreparedStatement ps = conn.prepareStatement(sql);
+			Statement s = conn.createStatement();
 			
-			ps.setInt(1, statusFk);
-			
-			ResultSet rs = ps.executeQuery();
-			
-			System.out.println("result set from get by status: " + rs);
+			ResultSet rs = s.executeQuery(sql);
 			
 			UserDAO uDAO = new UserDAO();
 			StatusDAO sDAO = new StatusDAO();
 			
+			
+			
 			ArrayList<Reimbursement> rArr = new ArrayList<>();
-			
-			
-			
-			//Pending status
-			
-			if (statusFk == 2 ){
-				while (rs.next()) {
-					Reimbursement reimb = new Reimbursement(
-							rs.getInt("reimb_id"),
-							rs.getInt("reimb_amount"),
-							rs.getTimestamp("reimb_submitted"),
-							rs.getString("reimb_type")
-							);
-					
-					//here we only give certain details; this is an unresolved request
-					
-					//we get our users by id to populate those object fields in 
-					//the reimbursement class
-					
-					
-					User u = uDAO.getAuthorById(rs.getInt("reimb_author_fk"));
-					
-					System.out.println("user in DAO: " + u);
-					
-					reimb.setReimbAuthor(u);
-					
-					System.out.println("author in the DAO: " + reimb.getReimbAuthor());
-					
-					rArr.add(reimb);
-				}
-				
-				return rArr;
-				
-			
-				//Approved or denied
-			
-			} else if (statusFk == 1 || statusFk == 3) {
-				System.out.println("Getting ready to create a new reimbursement");
-				ArrayList<Reimbursement> reimbArr = new ArrayList<>();
-				
-				while (rs.next()) {
-					System.out.println("in the while loop");
-					Reimbursement reimb = new Reimbursement(
-							rs.getInt("reimb_id"),
-							rs.getInt("reimb_amount"),
-							rs.getTimestamp("reimb_submitted"),
-							rs.getTimestamp("reimb_resolved"),
-							rs.getString("reimb_receipt"),
-							rs.getString("reimb_type")
-							
-							);
-					
-					Status s = sDAO.getStatusById(rs.getInt("reimb_status_id_fk"));
-					
-					System.out.println("S from the sDAO (status object)");
-					
-					System.out.println("status: " + s);
-					
-					User us = uDAO.getUserByID(rs.getInt("reimb_resolver_fk"));
-					
-					System.out.println("resolver: " + us);
-					
-					User u = uDAO.getAuthorById(rs.getInt("reimb_author_fk"));
-					
-					System.out.println("author: " + u);
-					
-					reimb.setReimbAuthor(u);
-					reimb.setReimbResolver(us);
-					
-					
-					reimbArr.add(reimb);
-					
-					System.out.println("reimb arr val: " + reimbArr);
-					
-					return reimbArr;
-				
-			}
-				
-			
-				
-				
-				//set up SETS to equal author_fk and status_id fk
-				//if reimbursement status is approved
-				return reimbArr;
+			while (rs.next()) {
+				Reimbursement reimb = new Reimbursement(
+						rs.getInt("reimb_id"),
+						rs.getInt("reimb_amoumt"),
+						rs.getTimestamp("reimb_submitted"),
+						rs.getTimestamp("reimb_resolved"),
+						rs.getString("reimb_receipt"),
+						rs.getString("reimb_type"),
+						sDAO.statusRecordById(rs.getInt("reimb_status_id_fk")),
+						uDAO.userRecordById(rs.getInt("reimb_author_fk")),
+						uDAO.userRecordById(rs.getInt("reimb_resolver_fk"))
+						);
 			}
 			
+
+					
 			
 		} catch (SQLException e) {
 			System.out.println("Couldn't connect to your database");

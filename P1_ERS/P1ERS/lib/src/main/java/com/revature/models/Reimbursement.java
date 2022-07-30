@@ -32,7 +32,7 @@ public class Reimbursement {
 	
 
 	public Reimbursement(int reimbId, int reimbAmt, Timestamp reimbSubmitted, Timestamp reimbResolved,
-			String reimbReceipt, String reimbType) {
+			String reimbReceipt, String reimbType, Status reimbStatus, User reimbAuthor, User reimbResolver) {
 		super();
 		this.reimbId = reimbId;
 		this.reimbAmt = reimbAmt;

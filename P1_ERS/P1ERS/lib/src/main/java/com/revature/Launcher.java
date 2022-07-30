@@ -34,7 +34,7 @@ public class Launcher {
 		ReimbursementController rc = new ReimbursementController();
 		AuthController ac = new AuthController();
 		
-		app.get("/reimbursement/status/:reimb_status_id", rc.getReimbursementByStatusHandler);
+		app.get("/reimbursement/status/:reimbStatusId", rc.getReimbursementByStatusHandler);
 		app.post("/reimbursement/new-reimbursement", rc.insertNewReimbursementHandler);
 		app.get("/reimbursement/all", rc.getAllReimbursementsHandler);
 		app.post("/users/login", ac.loginHandler);
