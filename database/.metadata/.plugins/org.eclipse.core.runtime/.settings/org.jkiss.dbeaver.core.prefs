@@ -7,5 +7,5 @@ sample.database.canceled=true
 script_dialog_mode=true
 sql.format.keywordCase=UPPER
 tipOfTheDayInitializer.notFirstRun=true
-ui.auto.update.check.time=1658768603747
+ui.auto.update.check.time=1659048999523
 ui.show.tip.of.the.day.on.startup=true

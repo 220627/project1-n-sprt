@@ -1,17 +1,21 @@
 package com.revature.models;
 
+import java.sql.Timestamp;
+
 public class ResolutionDTO {
 
 	private int reimbId;
 	private int resolverId;
 	private int statusId;
+	private Timestamp resolved;
 	
 	
-	public ResolutionDTO(int reimbId, int resolverId, int statusId) {
+	public ResolutionDTO(int reimbId, int resolverId, int statusId, Timestamp resolved) {
 		super();
 		this.reimbId = reimbId;
 		this.resolverId = resolverId;
 		this.statusId = statusId;
+		this.resolved = resolved;
 	}
 
 
@@ -48,6 +52,16 @@ public class ResolutionDTO {
 
 	public void setStatusId(int statusId) {
 		this.statusId = statusId;
+	}
+
+
+	public Timestamp getResolved() {
+		return resolved;
+	}
+
+
+	public void setResolved(Timestamp resolved) {
+		this.resolved = resolved;
 	}
 	
 	

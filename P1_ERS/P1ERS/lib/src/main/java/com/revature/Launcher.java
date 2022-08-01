@@ -33,14 +33,15 @@ public class Launcher {
 		
 		ReimbursementController rc = new ReimbursementController();
 		AuthController ac = new AuthController();
-		
-		app.get("/reimbursement/status/:reimbStatusId", rc.getReimbursementByStatusHandler);
+		app.get("/reimbursement/status/pending", rc.allPendingRecordsHandler);
+		app.get("/reimbursement/status/approved", rc.allApprovedRecordsHandler);
+		app.get("/reimbursement/status/denied", rc.allDeniedRecordsHandler);
 		app.post("/reimbursement/new-reimbursement", rc.insertNewReimbursementHandler);
-		app.get("/reimbursement/all", rc.getAllReimbursementsHandler);
+		app.get("/reimbursement/all", rc.allReimbursementRecordsHandler);
 		app.post("/users/login", ac.loginHandler);
-		app.patch("/reimbursement/finalize", rc.reimbursementResolutionHandler);
-		
-	
+		app.patch("/reimbursement/finalize", rc.finalizationHandler);
+		app.get("/reimbursement/user/all/:userId", rc.allRecordsByUserHandler);
+		app.get("/reimbursement/user/pending/:userId", rc.allPendingByUserHandler);
 	}
 
 }

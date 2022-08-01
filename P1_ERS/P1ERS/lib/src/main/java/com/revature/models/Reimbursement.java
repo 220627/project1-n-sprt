@@ -112,12 +112,14 @@ public class Reimbursement {
 
 	
 	
-	public Reimbursement(int reimbId, int reimbAmt, Timestamp reimbSubmitted, String reimbType) {
+	public Reimbursement(int reimbId, int reimbAmt, Timestamp reimbSubmitted, String reimbType, Status reimbStatus, User reimbAuthor) {
 		super();
 		this.reimbId = reimbId;
 		this.reimbAmt = reimbAmt;
 		this.reimbSubmitted = reimbSubmitted;
 		this.reimbType = reimbType;
+		this.reimbStatus = reimbStatus;
+		this.reimbAuthor = reimbAuthor;
 	}
 
 	

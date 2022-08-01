@@ -65,6 +65,16 @@ public class User {
 		this.userRole = userRole;
 	}
 	
+	public User(int ersUserId, String ersUsername, String userFirstName, String userLastName, int userRoleIdFk) {
+		super();
+		this.ersUserId = ersUserId;
+		this.ersUsername = ersUsername;
+		this.userFirstName = userFirstName;
+		this.userLastName = userLastName;
+		this.userRoleIdFk = userRoleIdFk;
+		
+	}
+	
 	
 	@Override
 	public String toString() {

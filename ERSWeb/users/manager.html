@@ -12,7 +12,6 @@
         <h2 id="osc-ers-title">OSC ERS</h2>
     </header>
     <h2 id="welcome-first-name"></h2>
-    <button id="submit-new" onClick="location.href='/reimbursement/NewReimbursement.html'">Submit new</button>
     <div class="container">
         <div id="status-selectors">
             <button class="selectors" id="approved">
@@ -38,8 +37,8 @@
             <th>Resolver</th>
             <th>Type</th>
             <th>Status</th>
-            <th>Approve</th>
-            <th>Deny</th>
+            <th id="approve-th">Approve</th>
+            <th id="deny-th">Deny</th>
         </thead>
         <tbody id="specialist-chosen-info">
             
@@ -47,6 +46,6 @@
 
     </table>
 </div>
-    <script src="script.js"></script>
+    <script src="manager.js"></script>
 </body>
 </html>

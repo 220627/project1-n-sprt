@@ -4,6 +4,7 @@ package com.revature.controllers;
 import java.util.ArrayList;
 
 import com.google.gson.Gson;
+import com.google.gson.internal.GsonBuildConfig;
 import com.revature.daos.ReimbursementDAO;
 import com.revature.models.Reimbursement;
 import com.revature.models.ResolutionDTO;
@@ -12,25 +13,59 @@ import io.javalin.http.Handler;
 
 public class ReimbursementController {
 	
-	ReimbursementDAO rDAO = new ReimbursementDAO();
-	
-	public Handler getReimbursementByStatusHandler	= (ctx)	-> {
+	public Handler allDeniedRecordsHandler = (ctx) -> {
 		
-		int statusId = Integer.parseInt(ctx.pathParam("reimbStatusId"));
-			
-		System.out.println("statusId in the HANDLER : " + statusId);
+		ReimbursementDAO rDAO = new ReimbursementDAO();
 		
-		ArrayList<Reimbursement> rArr = rDAO.getApprovedRecords(statusId);
+		ArrayList<Reimbursement> rArr = rDAO.allDeniedRecords();
 		
 		Gson gson = new Gson();
 		
-		String JSONReimbursements = gson.toJson(rArr);
+		String records = gson.toJson(rArr);
 		
-		ctx.result(JSONReimbursements);
+		ctx.result(records);
+		
+		ctx.status(200);
+	};
+	
+	
+	
+	public Handler allApprovedRecordsHandler = (ctx)	-> {
+		
+		
+		ReimbursementDAO rDAO = new ReimbursementDAO();
+		ArrayList<Reimbursement> rArr = rDAO.allApprovedRecords();
+		
+		
+		Gson gson = new Gson();
+		
+		String records = gson.toJson(rArr);
+		
+		System.out.println("debug. in allApproveRecordsHandler. records=[" + records + "]");
+		
+		ctx.result(records);
 		
 		ctx.status(200);
 		
 		
+	};
+	
+	public Handler allPendingRecordsHandler=(ctx) -> {
+		ReimbursementDAO rDAO = new ReimbursementDAO();
+ArrayList<Reimbursement> rArr = rDAO.allPendingRecords();
+		
+		System.out.println("Debug. (AARPRH): field: ArrayList<Reimbursement> rArr = rDAO.allApprovedRecords(). Val: " + rArr);
+		
+		Gson gson = new Gson();
+		
+		String records = gson.toJson(rArr);
+		
+		System.out.println("Entering allApprovedRecordsHandler");
+		System.out.println("Debug. (AAPRH): field: String records = gson.ToJson(rArr). Val: " + records);
+		
+		ctx.result(records);
+		
+		ctx.status(200);
 	};
 	
 	public Handler insertNewReimbursementHandler = (ctx) -> {
@@ -45,7 +80,7 @@ public class ReimbursementController {
 		Reimbursement newReimb = gson.fromJson(body, Reimbursement.class);
 		
 		
-		if (rDAO.insertNewReimbursement(newReimb)) {
+		if (rDAO.newReimbursement(newReimb)) {
 			ctx.status(202);
 		} else {
 			ctx.status(406);
@@ -55,12 +90,12 @@ public class ReimbursementController {
 		
 	};
 	
-	public Handler getAllReimbursementsHandler = (ctx) -> {
+	public Handler allReimbursementRecordsHandler = (ctx) -> {
 		
 		ReimbursementDAO rDAO = new ReimbursementDAO();
 		
 		
-		ArrayList<Reimbursement> rArr = rDAO.getAllReimbursements();//rDAO.getAllReimbursements();
+		ArrayList<Reimbursement> rArr = rDAO.allRecords();//rDAO.getAllReimbursements();
 		
 		System.out.println(rArr.toString());
 		
@@ -72,13 +107,48 @@ public class ReimbursementController {
 			ctx.result(reimbursements);
 			ctx.status(200);
 			
-		} else {
-			ctx.status(400);
-		}
+		} 
 		
 	};
 	
-	public Handler reimbursementResolutionHandler = (ctx) -> {
+	public Handler allRecordsByUserHandler = (ctx) -> {
+
+		ReimbursementDAO rDAO = new ReimbursementDAO();
+		
+		int authorId = Integer.parseInt(ctx.pathParam("userId"));
+		
+		Gson gson = new Gson();
+		
+		
+		ArrayList<Reimbursement> rArr = rDAO.allRecordsByUser(authorId);
+		
+		String records = gson.toJson(rArr);
+		
+		ctx.result(records);
+		ctx.status(200);
+		
+	};
+	
+public Handler allPendingByUserHandler = (ctx) -> {
+	
+		ReimbursementDAO rDAO = new ReimbursementDAO();
+		
+		int authorId = Integer.parseInt(ctx.pathParam("userId"));
+	
+		
+		Gson gson = new Gson();
+		
+		
+		ArrayList<Reimbursement> rArr = rDAO.allPendingByUser(authorId);
+		
+		String records = gson.toJson(rArr);
+		
+		ctx.result(records);
+		ctx.status(200);
+		
+	};
+	
+	public Handler finalizationHandler = (ctx) -> {
 		
 		ReimbursementDAO rDAO = new ReimbursementDAO();
 		
@@ -97,7 +167,8 @@ public class ReimbursementController {
 		if (rDAO.finalizeRecord(
 				finalizeDTO.getStatusId(),   
 				finalizeDTO.getReimbId(), 
-				finalizeDTO.getResolverId())) 
+				finalizeDTO.getResolverId()
+				))
 		{
 			
 			ctx.status(202);

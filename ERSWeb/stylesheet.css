@@ -128,13 +128,10 @@ input[type=password] {
 }
 
 #submit-new {
-    position: fixed;
-    left: 1170px;
-    top: 200px;
     background-color:  rgb(245, 200, 141);
     border-color:rgb(80, 158, 44);
     border-radius: 3px;
-    height: 30px;
+    height: 40px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -156,7 +153,7 @@ input[type=password] {
 }
 
 #container {
-    margin-left: 36%;
+    margin: 0 auto;
     
 }
 
@@ -200,9 +197,22 @@ input[type=password] {
     
 }
 
-#approve_button {
+#approve-button {
     margin: 0;
     padding: 0;
-    
-    
+    background-color: rgb(190, 242, 206);
+    border-radius: 3px;
+    border-color:rgb(80, 158, 44);
+}
+
+#deny-button {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(242, 198, 190);
+    border-radius: 3px;
+    border-color:rgb(80, 158, 44);
+}
+
+#specialist-chosen-info {
+    font-family:Arial, Helvetica, sans-serif;
 }

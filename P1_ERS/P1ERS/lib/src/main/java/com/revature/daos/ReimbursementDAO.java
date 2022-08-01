@@ -16,7 +16,7 @@ import com.revature.util.ConnectionUtil;
 
 public class ReimbursementDAO {
 	
-	public ArrayList<Reimbursement> getAllReimbursements(){
+	public ArrayList<Reimbursement> allRecords(){
 		
 		try(Connection conn = ConnectionUtil.getConnection()){
 			
@@ -28,9 +28,11 @@ public class ReimbursementDAO {
 			
 			ArrayList<Reimbursement> rArr = new ArrayList<>();
 			
+			StatusDAO sDAO = new StatusDAO();
+			UserDAO uDAO = new UserDAO();
+			
 			while(rs.next()) {
-				StatusDAO sDAO = new StatusDAO();
-				UserDAO uDAO = new UserDAO();
+				
 				Reimbursement r = new Reimbursement(
 						
 						rs.getInt("reimb_id"),
@@ -38,17 +40,16 @@ public class ReimbursementDAO {
 						rs.getTimestamp("reimb_submitted"),
 						rs.getTimestamp("reimb_resolved"),
 						rs.getString("reimb_receipt"),
-						rs.getString("reimb_type")
+						rs.getString("reimb_type"),
+						sDAO.statusRecordById(rs.getInt("reimb_status_id_fk")),
+						uDAO.userRecordById(rs.getInt("reimb_author_fk")),
+						uDAO.userRecordById(rs.getInt("reimb_resolver_fk"))
 						);
-				
-	
-				r.setReimbStatus(sDAO.getStatusById(rs.getInt("reimb_status_id_fk")));
-				r.setReimbResolver(uDAO.userRecordById(rs.getInt("reimb_resolver_fk")));		
-				r.setReimbAuthor(uDAO.userRecordById(rs.getInt("reimb_author_fk")));
 				
 				rArr.add(r);
 			
 			}
+			
 			return rArr;
 			
 		} catch (SQLException e) {
@@ -96,13 +97,107 @@ public class ReimbursementDAO {
 	}
 	
 	
-	public ArrayList<Reimbursement> getApprovedRecords(int statusFk) {
+public ArrayList<Reimbursement> allPendingByUser(int authorId) {
+	
+	try (Connection conn = ConnectionUtil.getConnection()){
+		
+		
+		String sql = "select * from ers_reimbursement where reimb_author_fk = ? and reimb_status_id_fk = 2;";
+		
+		PreparedStatement ps = conn.prepareStatement(sql);
+		
+		ps.setInt(1, authorId);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		
+		
+		UserDAO uDAO = new UserDAO();
+		StatusDAO sDAO = new StatusDAO();
+		
+		
+		
+		ArrayList<Reimbursement> rArr = new ArrayList<>();
+		while (rs.next()) {
+			Reimbursement reimb = new Reimbursement(
+					rs.getInt("reimb_id"),
+					rs.getInt("reimb_amount"),
+					rs.getTimestamp("reimb_submitted"),
+					rs.getString("reimb_type"),
+					sDAO.statusRecordById(rs.getInt("reimb_status_id_fk")),
+					uDAO.userRecordById(authorId)
+					);
+			
+			rArr.add(reimb);
+		}
+		
+		return rArr;
+		
+	} catch (SQLException e) {
+		System.out.println("Couldn't connect to your database");
+		e.printStackTrace();
+	}
+	
+	return null;
+	
+	
+}
+	
+	
+public ArrayList<Reimbursement> allRecordsByUser(int authorId) {
 		
 		try (Connection conn = ConnectionUtil.getConnection()){
 			
-			System.out.println("(GRBS): Arg val: var: 'statusfk': " + statusFk);
 			
-			String sql = "select * from ers_reimbursement where reimb_status_id_fk = ?;";
+			String sql = "select * from ers_reimbursement where reimb_author_fk = ?;";
+			
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, authorId);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			
+			
+			UserDAO uDAO = new UserDAO();
+			StatusDAO sDAO = new StatusDAO();
+			
+			
+			
+			ArrayList<Reimbursement> rArr = new ArrayList<>();
+			while (rs.next()) {
+				Reimbursement reimb = new Reimbursement(
+						rs.getInt("reimb_id"),
+						rs.getInt("reimb_amount"),
+						rs.getTimestamp("reimb_submitted"),
+						rs.getTimestamp("reimb_resolved"),
+						rs.getString("reimb_receipt"),
+						rs.getString("reimb_type"),
+						sDAO.statusRecordById(rs.getInt("reimb_status_id_fk")),
+						uDAO.userRecordById(authorId),
+						uDAO.userRecordById(rs.getInt("reimb_resolver_fk"))
+						);
+				
+				rArr.add(reimb);
+			}
+			
+			return rArr;
+			
+		} catch (SQLException e) {
+			System.out.println("Couldn't connect to your database");
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	
+	public ArrayList<Reimbursement> allApprovedRecords() {
+		
+		try (Connection conn = ConnectionUtil.getConnection()){
+			
+			
+			String sql = "select * from ers_reimbursement where reimb_status_id_fk = 1;";
 			
 			Statement s = conn.createStatement();
 			
@@ -117,7 +212,7 @@ public class ReimbursementDAO {
 			while (rs.next()) {
 				Reimbursement reimb = new Reimbursement(
 						rs.getInt("reimb_id"),
-						rs.getInt("reimb_amoumt"),
+						rs.getInt("reimb_amount"),
 						rs.getTimestamp("reimb_submitted"),
 						rs.getTimestamp("reimb_resolved"),
 						rs.getString("reimb_receipt"),
@@ -126,7 +221,12 @@ public class ReimbursementDAO {
 						uDAO.userRecordById(rs.getInt("reimb_author_fk")),
 						uDAO.userRecordById(rs.getInt("reimb_resolver_fk"))
 						);
+				
+				rArr.add(reimb);
 			}
+			
+			return rArr;
+			
 			
 
 					
@@ -139,7 +239,94 @@ public class ReimbursementDAO {
 		return null;
 	}
 	
-	public boolean insertNewReimbursement(Reimbursement reimb) {
+public ArrayList<Reimbursement> allPendingRecords() {
+		
+		try (Connection conn = ConnectionUtil.getConnection()){
+			
+			
+			String sql = "select * from ers_reimbursement where reimb_status_id_fk = 2;";
+			
+			Statement s = conn.createStatement();
+			
+			ResultSet rs = s.executeQuery(sql);
+			
+			UserDAO uDAO = new UserDAO();
+			StatusDAO sDAO = new StatusDAO();
+			
+			
+			
+			ArrayList<Reimbursement> rArr = new ArrayList<>();
+			while (rs.next()) {
+				Reimbursement reimb = new Reimbursement(
+						rs.getInt("reimb_id"),
+						rs.getInt("reimb_amount"),
+						rs.getTimestamp("reimb_submitted"),
+						rs.getString("reimb_type"),
+						sDAO.statusRecordById(rs.getInt("reimb_status_id_fk")),
+						uDAO.userRecordById(rs.getInt("reimb_author_fk"))
+						);
+				
+				rArr.add(reimb);
+			}
+			
+			return rArr;		
+			
+		} catch (SQLException e) {
+			System.out.println("Couldn't connect to your database");
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+
+
+public ArrayList<Reimbursement> allDeniedRecords() {
+	
+	try (Connection conn = ConnectionUtil.getConnection()){
+		
+		
+		String sql = "select * from ers_reimbursement where reimb_status_id_fk = 3;";
+		
+		Statement s = conn.createStatement();
+		
+		ResultSet rs = s.executeQuery(sql);
+		
+		UserDAO uDAO = new UserDAO();
+		StatusDAO sDAO = new StatusDAO();
+		
+		ArrayList<Reimbursement> rArr = new ArrayList<>();
+		while (rs.next()) {
+			Reimbursement reimb = new Reimbursement(
+					rs.getInt("reimb_id"),
+					rs.getInt("reimb_amount"),
+					rs.getTimestamp("reimb_submitted"),
+					rs.getTimestamp("reimb_resolved"),
+					rs.getString("reimb_receipt"),
+					rs.getString("reimb_type"),
+					sDAO.statusRecordById(rs.getInt("reimb_status_id_fk")),
+					uDAO.userRecordById(rs.getInt("reimb_author_fk")),
+					uDAO.userRecordById(rs.getInt("reimb_resolver_fk"))
+					);
+			
+			rArr.add(reimb);
+		}
+		
+		return rArr;
+		
+		
+
+				
+		
+	} catch (SQLException e) {
+		System.out.println("Couldn't connect to your database");
+		e.printStackTrace();
+	}
+	
+	return null;
+}
+	
+	public boolean newReimbursement(Reimbursement reimb) {
 		
 		try (Connection conn = ConnectionUtil.getConnection()) {
 			
@@ -165,6 +352,8 @@ public class ReimbursementDAO {
 				//comes back successfully. we can do this in the controller by instatiating a rdao and
 				//using the getReimbursementById() method. then we can send a copy of the inserted record up
 				//to the front end
+			
+			
 			return true;
 			} catch (SQLException e) {
 			e.printStackTrace();
@@ -187,6 +376,7 @@ public class ReimbursementDAO {
 			ps.setTimestamp(1, Timestamp.from(Instant.now()));
 			ps.setInt(2, reimbId);
 			
+			ps.executeUpdate();
 			
 			return true;
 		
